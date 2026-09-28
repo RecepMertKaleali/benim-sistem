@@ -107,737 +107,2011 @@
         // 20 Maddelik Dev Tamir Verileri
         // 100 Maddelik Dev Tamir ve Parça Veritabanı
        // 100 Maddelik Detaylı Adımlı Tamir ve Parça Veritabanı
-        const tamirVerileri = [
-            // Elektronik ve Akıllı Cihazlar (ELK-101 / ELK-120)
-            { id: 1, baslik: "Akıllı Telefon Ekranı Değişimi", kategori: "Elektronik", zorluk: "İleri", sure: "45 Dakika", ikon: "fa-mobile-screen", gerekliAraclar: ["Vakumlu Kaldırıcı", "Tornavida", "Isı Tabancası"], adımlar: [
-                "Cihazı kapatın ve arka/ön ekran yapışkanını yumuşatmak için kenarlardan ısı tabancasıyla kontrollü ısı verin.",
-                "Vakumlu vantuz yardımıyla ekranı hafifçe kaldırıp araya ince plastik ayıraç sokarak yapışkanları yavaşça kesin.",
-                "Anakart koruma sacını tutan mikro vidaları sökün ve ekran flex kablolarını anakarttan klipsinden çıkarın.",
-                "Eski ekrandaki ahize hoparlörünü ve sensörleri söküp yeni ekrana dikkatlice transfer edin.",
-                "Kasanın kenarlarında kalan eski yapışkan kalıntılarını izopropil alkol yardımıyla iyice temizleyin.",
-                "Yeni ekranı takıp flexleri sabitleyin, çevreye sıvı yapışkan çekerek kasayı mandallarla kurumaya bırakın."
-            ]},
-            { id: 2, baslik: "Kablosuz Kulaklık Bataryası", kategori: "Elektronik", zorluk: "İleri", sure: "30 Dakika", ikon: "fa-headphones", gerekliAraclar: ["Hassas Cımbız", "Mini Havya"], adımlar: [
-                "Kulaklık gövdesini veya şarj kutusunu plastik açma aparatı ile birbirine tutunduğu tırnaklardan ayırın.",
-                "Anakart ve batarya bağlantı noktalarına ulaşmak için koruyucu izolasyon bantlarını hafifçe kaldırın.",
-                "Eski bataryanın artı (+) ve eksi (-) kutup lehimlerini havya yardımıyla eriterek karttan sökün.",
-                "Yeni lityum bataryayı aynı kutup yönlerine dikkat ederek kart üzerindeki noktalara taze lehimle sabitleyin.",
-                "Bataryanın kutu veya gövde içinde oynamaması için hafifçe çift taraflı bantla yerine yapıştırın.",
-                "Gövdeyi kapatın ve şarj soketine takarak bataryanın dolup dolmadığını test edin."
-            ]},
-            { id: 3, baslik: "Bluetooth Hoparlör Şarj Entegresi", kategori: "Elektronik", zorluk: "İleri", sure: "40 Dakika", ikon: "fa-volume-high", gerekliAraclar: ["Sıcak Hava İstasyonu", "Flux"], adımlar: [
-                "Hoparlörün dış vidalarını sökerek anakartın bulunduğu ana hazneye ulaşın.",
-                "Şarj entegresinin etrafındaki hassas kabloları ve soketleri sökerek kartı tamamen dışarı çıkarın.",
-                "Arızalı entegre bacaklarına bir miktar flux sürün ve sıcak hava istasyonu ile entegreyi karttan kaldırın.",
-                "Kart üzerindeki lehim padlerini lehim teli ve fitil yardımıyla temizleyip düzleştirin.",
-                "Yeni şarj entegresini doğru yönde padlerin üzerine yerleştirip sıcak hava ile lehimleri eriterek sabitleyin.",
-                "Kartı yerine monte edin ve şarj kablosunu takarak entegrenin çalışmasını kontrol edin."
-            ]},
-            { id: 4, baslik: "Akıllı Saat Dokunmatik Paneli", kategori: "Elektronik", zorluk: "Orta", sure: "25 Dakika", ikon: "fa-clock", gerekliAraclar: ["Plastik Ayıraç", "Yapıştırıcı"], adımlar: [
-                "Saatin arka kapağını ve batarya bağlantısını sökerek cihaza gelen elektriği kesin.",
-                "Isı tabancasıyla ön cam çerçevesini ısıtarak yapışkanını gevşetin.",
-                "İnce plastik ayraçla kırık dokunmatik paneli kasadan yavaşça ayırıp flex kablosunu çıkarın.",
-                "Yuva içerisinde kalan cam kırıklarını ve yapışkan artıklarını temizleyin.",
-                "Yeni dokunmatik panelin flex kablosunu yuvadan geçirip yapıştırıcı ile kasaya sabitleyin.",
-                "Ekran testi yapıp saatin ön camını tamamen kapatın."
-            ]},
-            { id: 5, baslik: "Tablet Anakartı Onarımı", kategori: "Elektronik", zorluk: "Uzman", sure: "60 Dakika", ikon: "fa-tablet", gerekliAraclar: ["Multimetre", "Lehim Makinesi"], adımlar: [
-                "Tablet kapağını çıkarıp ana batarya soketini derhal sökerek elektriği kesin.",
-                "Multimetre yardımıyla güç entegresi çevresindeki hatlarda kısa devre kontrolü yapın.",
-                "Arızalı kondansatör veya dirençleri tespit edip havya yardımıyla karttan ayırın.",
-                "Sağlam yedek devre elemanını doğru değerlerde karta lehimleyin.",
-                "Devre kartını izopropil alkol ile temizleyip kurumasını bekleyin.",
-                "Bataryayı takıp tabletin açılış (boot) yapıp yapmadığını test edin."
-            ]},
-            { id: 6, baslik: "Dijital Fotoğraf Makinesi Lensi", kategori: "Elektronik", zorluk: "İleri", sure: "50 Dakika", ikon: "fa-camera", gerekliAraclar: ["Mini Tornavida"], adımlar: [
-                "Makine gövdesini sabitleyen dış vidaları sökerek lens modülüne erişin.",
-                "Lens şerit kablolarını (flex) anakart üzerindeki soketlerinden tırnaklarını kaldırarak sökün.",
-                "Lens mekanizmasını dış kasasından ayırıp dişli raylarında sıkışma olup olmadığını inceleyin.",
-                "Dişlilere kaçan kum veya toz taneciklerini ince fırça ve alkol ile temizleyin.",
-                "Mekanik raylara çok ince bir katman saatçi yağı sürerek hareket kabiliyetini artırın.",
-                "Parçaları ters sıralamayla birleştirip odaklanma testini gerçekleştirin."
-            ]},
-            { id: 7, baslik: "El Feneri LED Devresi", kategori: "Elektronik", zorluk: "Kolay", sure: "10 Dakika", ikon: "fa-lightbulb", gerekliAraclar: ["Havya", "Lehim"], adımlar: [
-                "El fenerinin ön kapağını saat yönünün tersine çevirerek sökün ve camı çıkarın.",
-                "LED çipinin oturduğu alüminyum soğutucu yüzeye ulaşmak için iç vidaları sökün.",
-                "Yanık LED çipinin artı ve eksi bacaklarındaki lehimleri havya ile eritin.",
-                "Yeni LED çipini aynı kutup yönüne dikkat ederek soğutucu üzerine oturtun.",
-                "Bacakları taze lehim ile padlere sağlamca tutturun.",
-                "Ön kapağı kapatıp feneri açarak ışık verip vermediğini test edin."
-            ]},
-            { id: 8, baslik: "Powerbank Batarya Hücresi", kategori: "Elektronik", zorluk: "Orta", sure: "30 Dakika", ikon: "fa-battery-full", gerekliAraclar: ["Nokta Kaynak"], adımlar: [
-                "Powerbank dış kasasını tırnaklarından nazikçe ayırarak iç devre kartını ve pilleri dışarı çıkarın.",
-                "Ömrü bitmiş olan lityum iyon pili (18650 vb.) üzerindeki nikel şeritleri lehimden veya noktadan ayırın.",
-                "Yeni batarya hücresini yuvaya yerleştirip nikel şeridi nokta kaynak makinesi ile pilde sabitleyin.",
-                "Anakart bağlantı kablolarını yeni pilin uçlarına hatasız şekilde lehimleyin.",
-                "Pillerin kasaya sürtünüp kısa devre yapmaması için yalıtkan bantla çevreleyin.",
-                "Kasayı kapatıp powerbank'i şarja takarak doluluk oranını test edin."
-            ]},
-            { id: 9, baslik: "Uzaktan Kumanda Tuş Takımı", kategori: "Elektronik", zorluk: "Kolay", sure: "10 Dakika", ikon: "fa-remote", gerekliAraclar: ["Alkol", "Kulak Çubuğu"], adımlar: [
-                "Kumandanın arka pil kapağını çıkarıp pilleri alın ve gizli vidayı sökün.",
-                "Plastik kasayı tırnaklardan ayırarak devre kartı ile kauçuk tuş takımını birbirinden ayırın.",
-                "Kauçuk tuşların altındaki siyah iletken karbon pedleri izopropil alkollü kulak çubuğuyla silin.",
-                "Devre kartı üzerindeki tuş temas yollarını da aynı şekilde yağ ve kirden arındırın.",
-                "Parçaların tamamen kuruduğundan emin olduktan sonra tuşları yuvaya oturtun.",
-                "Kasayı kapatıp vidalayın ve tuşların algılamasını test edin."
-            ]},
-            { id: 10, baslik: "Taşınabilir Hard Disk Okuyucu Kafası", kategori: "Elektronik", zorluk: "Uzman", sure: "90 Dakika", ikon: "fa-hard-drive", gerekliAraclar: ["Özel Aparat"], adımlar: [
-                "Sabit diskin dış metal kapağını sökün (Bu işlem tozsuz ortam gerektirir).",
-                "Disk plakalarına zarar vermeden okuyucu kafa (head) kolunu sabitleyen vidayı çıkarın.",
-                "Arızalı okuyucu kafayı özel aparat yardımıyla dik bir şekilde yuvasından çekip alın.",
-                "Sağlam yedek okuyucu kafayı aynı açıyla hassasca yerine monte edin.",
-                "Kafa kolunun plakalar üzerinde serbestçe hareket ettiğini kontrol edin.",
-                "Kapağı kapatıp verileri kurtarmak için diski bilgisayara bağlayın."
-            ]},
-            { id: 11, baslik: "Elektronik Terazi Sensörü", kategori: "Elektronik", zorluk: "Orta", sure: "20 Dakika", ikon: "fa-scale-balanced", gerekliAraclar: ["Tornavida"], adımlar: [
-                "Terazinin alt tabanını çevirerek vidaları sökün ve iç gövdeye ulaşın.",
-                "Yük hücresinin (Loadcell) anakart üzerindeki renkli kablo bağlantı uçlarını kontrol edin.",
-                "Kopuk veya yerinden çıkmış kablo varsa lehimlerini tazeleyin.",
-                "Sensörün alt ve üst gövdeye bağlanan montaj vidalarının sıkılığını kontrol edin.",
-                "Terazi platformuna basıldığında sensörün esneme yapıp yapmadığını gözlemleyin.",
-                "Alt kapağı kapatıp ağırlık kalibrasyonu (darra) yaparak testi tamamlayın."
-            ]},
-            { id: 12, baslik: "Multimetre Kablosu ve Soketi", kategori: "Elektronik", zorluk: "Kolay", sure: "10 Dakika", ikon: "fa-gauge", gerekliAraclar: ["Lehim"], adımlar: [
-                "Multimetre problarının kopuk veya temassızlık yaptığı noktayı (genellikle jack veya prob ucu) tespit edin.",
-                "Kopuk bölgedeki yalıtkan plastik kılıfı sıyırarak bakır kablo tellerini açığa çıkarın.",
-                "Kablo ucunu multimetre soket terminaline veya prob arkasına lehimleyin.",
-                "Lehimlenen bölgenin açıkta kalmaması için makaron veya elektrik bandı ile yalıtın.",
-                "Prob uçlarının sürekliliğini cihazı ohm kademesine alarak test edin."
-            ]},
-            { id: 13, baslik: "Modem Adaptör Girişi", kategori: "Elektronik", zorluk: "Orta", sure: "20 Dakika", ikon: "fa-network-wired", gerekliAraclar: ["Havya"], adımlar: [
-                "Modem kasasının altındaki vidaları sökerek anakartı dışarı çıkarın.",
-                "Adaptör girişinin (DC Jack) anakart üzerindeki lehim bacaklarını havya ve pompa ile temizleyin.",
-                "Kırılmış veya gevşemiş soketi karttan tamamen ayırın.",
-                "Aynı tip ve boyuttaki yeni DC soketi kart üzerindeki deliklere oturtun.",
-                "Soket bacaklarını anakarta sağlamca lehimleyip taşan lehimleri kontrol edin.",
-                "Modemi kasaya monte edip adaptörü takarak güç ışığının yanmasını test edin."
-            ]},
-            { id: 14, baslik: "Oyuncu Kulaklığı Mikrofonu", kategori: "Elektronik", zorluk: "Kolay", sure: "15 Dakika", ikon: "fa-microphone", gerekliAraclar: ["Lehim"], adımlar: [
-                "Mikrofonun esnek kolunun veya kulaklık birleşim yerinin plastik kapağını açın.",
-                "Kopan mikrofon sinyal ve toprak kablolarını gözle tespit edin.",
-                "Kabloların uçlarını soyup havya yardımıyla hafifçe kalaylayın.",
-                "Artı ve eksi kabloları mikrofon kapsülünün veya kartın ilgili pinlerine lehimleyin.",
-                "Kabloların kopmaması için sıcak silikon veya bantla gerilim önleyici destek yapın.",
-                "Kulaklık mikrofonunu ses kaydı yaparak test edin."
-            ]},
-            { id: 15, baslik: "Mikrofon Kapsülü Değişimi", kategori: "Elektronik", zorluk: "Orta", sure: "15 Dakika", ikon: "fa-microphone-lines", gerekliAraclar: ["Havya"], adımlar: [
-                "Mikrofon koruma ızgarasını veya yuvasını açarak küçük ses kapsülüne ulaşın.",
-                "Eski kapsüle bağlı olan kabloların lehimlerini havya ile eriterek sökün.",
-                "Yeni mikrofon kapsülünün artı (+) ve eksi (-) kutuplarına kabloları doğru şekilde lehimleyin.",
-                "Kapsülü kendi yuvasına titreşim yapmayacak şekilde oturtun.",
-                "Izgarayı kapatıp ses netliğini test edin."
-            ]},
-            { id: 16, baslik: "Navigasyon Cihazı Bataryası", kategori: "Elektronik", zorluk: "Kolay", sure: "20 Dakika", ikon: "fa-map-location", "gerekliAraclar": ["Tornavida"], adımlar: [
-                "Cihazın kenar vidalarını sökerek ön ve arka kasayı birbirinden ayırın.",
-                "Şişmiş veya bitmiş olan bataryanın anakart üzerindeki soketini çekerek çıkarın.",
-                "Yeni bataryanın soketini aynı yuvaya yönüne dikkat ederek takın.",
-                "Bataryayı cihaz içerisindeki boşluğa çift taraflı bantla sabitleyin.",
-                "Kasayı kapatıp şarj kablosu bağlayarak açılıp açılmadığını kontrol edin."
-            ]},
-            { id: 17, baslik: "Kesintisiz Güç Kaynağı (UPS) Aküsü", kategori: "Elektronik", zorluk: "Orta", sure: "25 Dakika", ikon: "fa-car-battery", gerekliAraclar: ["Alyan Anahtar"], adımlar: [
-                "UPS cihazının dış metal veya plastik kasasını sabitleyen vidaları sökün.",
-                "İçeride bulunan ağır 12V kuru akülerin üzerindeki kutup başı kablolarını sökün.",
-                "Eski aküleri kasadan dışarı çıkarın ve yeni eşdeğer aküleri yerleştirin.",
-                "Kırmızı kabloyu artı (+), siyah kabloyu eksi (-) kutba sıkıca takın.",
-                "Kasayı kapatıp vidalayın ve elektrik fişine takarak şarj testini yapın."
-            ]},
-            { id: 18, baslik: "Barkod Okuyucu Lazer Tarayıcı", kategori: "Elektronik", zorluk: "İleri", sure: "30 Dakika", ikon: "fa-barcode", gerekliAraclar: ["Temizlik Bezi"], adımlar: [
-                "Barkod okuyucunun alt kapağındaki vidaları sökerek optik motor kartına ulaşın.",
-                "Lazer diyot ve okuyucu mercek camı üzerinde biriken tozları izopropil alkolle silin.",
-                "Tarayıcı ayna motorunun dönmesini engelleyen bir engel olup olmadığını kontrol edin.",
-                "Kart bağlantı soketlerini kontrol edip yerlerine tam oturduğundan emin olun.",
-                "Kasayı birleştirip barkod okuma testi yapın."
-            ]},
-            { id: 19, baslik: "Hesap Makinesi LCD Ekranı", kategori: "Elektronik", zorluk: "Orta", sure: "15 Dakika", ikon: "fa-calculator", gerekliAraclar: ["Tornavida"], adımlar: [
-                "Hesap makinesinin arka vidalarını sökerek ön paneli ve anakartı ayırın.",
-                "LCD ekran ile anakart arasında iletkenliği sağlayan 'zebra' lastiği cımbızla çıkarın.",
-                "Ekran camı üzerindeki ve karttaki temas yüzeylerini alkolle temizleyin.",
-                "Zebra lastiği ve LCD ekranı tam hizalayarak tekrar yuvasına oturtun.",
-                "Ekranın üzerine hafifçe bastırarak vidalayın ve tüm rakamların göründüğünü test edin."
-            ]},
-            { id: 20, baslik: "El Telsizi Anten Soketi", kategori: "Elektronik", zorluk: "Orta", sure: "20 Dakika", ikon: "fa-walkie-talkie", gerekliAraclar: ["Anahtar"], adımlar: [
-                "Telsiz üst kısmındaki anteni saat yönünün tersine çevirerek sökün.",
-                "Volume potansiyometresini ve somununu sökerek iç kasayı dış kılıftan çıkarın.",
-                "Gevşeyen veya kırılan BNC/SMA anten soketini ana karta bağlayan lehimleri yenileyin.",
-                "Soket gövdesini somun yardımıyla kasaya sıkıca sabitleyin.",
-                "Telsizi toplayıp sinyal alım kalitesini test edin."
-            ]},
+        const tumTamirRehberleri = [
+    // --- 1 - 100 ARASI REHBERLER ---
+    {
+        id: 1,
+        baslik: "Akıllı Telefon Şok Batarya Değişimi",
+        kategori: "Telefon",
+        zorluk: "Orta",
+        sure: "30 Dakika",
+        aciklama: "Ömrü biten veya hızlı biten telefon bataryanızı evde güvenle değiştirin.",
+        malzemeler: ["1 Adet Uyumlu Batarya", "Vantuz ve Plastik Spudger", "Tornavida Seti", "Isı Tabancası"],
+        adimlar: ["Telefonu kapatın.", "Kenarları ısıtıp ekranı vantuzla kaldırın.", "Batarya soketini sökün.", "Eski bataryayı çıkarıp yenisini takın."]
+    },
+    {
+        id: 2,
+        baslik: "Dizüstü Bilgisayar Fan Temizliği ve Termal Macun",
+        kategori: "Elektronik",
+        zorluk: "Orta",
+        sure: "60 Dakika",
+        aciklama: "Aşırı ısınan ve ses yapan laptopların bakımını yapın.",
+        malzemeler: ["Termal Macun", "Yıldız Tornavida", "Basınçlı Hava"],
+        adimlar: ["Alt kasanın vidalarını sökün.", "Fanı söküp tozunu alın.", "Eski macunu temizleyip yenisini sürün."]
+    },
+    {
+        id: 3,
+        baslik: "Mekanik Klavye Switch Değişimi",
+        kategori: "Elektronik",
+        zorluk: "Orta",
+        sure: "40 Dakika",
+        aciklama: "Basmayan mekanik tuşların anahtarlarını yenileyin.",
+        malzemeler: ["Keycap Sökücü", "Switch Puller", "Yedek Switch"],
+        adimlar: ["Tuş başlığını çıkarın.", "Eski switch'i çekip çıkarın.", "Yeni switch'i yuvaya bastırın."]
+    },
+    {
+        id: 4,
+        baslik: "Çay Makinesi Kireç Temizliği",
+        kategori: "Ev Aletleri",
+        zorluk: "Kolay",
+        sure: "25 Dakika",
+        aciklama: "Isınmayan veya kireçlenen çaycıları arındırın.",
+        malzemeler: ["Limon Tuzu", "Su"],
+        adimlar: ["Hazneye su ve limon tuzu ekleyin.", "Kaynatıp 15 dk bekletin.", "Bol suyla durulayın."]
+    },
+    {
+        id: 5,
+        baslik: "Duş Bataryası Kartuş Değişimi",
+        kategori: "Tesisat",
+        zorluk: "Orta",
+        sure: "30 Dakika",
+        aciklama: "Su sızdıran musluk iç takımını yenileyin.",
+        malzemeler: ["Kurbağacık", "Yedek Kartuş"],
+        adimlar: ["Ana suyu kapatın.", "Musluk kolunu sökün.", "Eski kartuşu çıkarıp yenisini takın."]
+    },
+    {
+        id: 6,
+        baslik: "Kablosuz Kulaklık Şarj Kutusu Onarımı",
+        kategori: "Elektronik",
+        zorluk: "İleri",
+        sure: "45 Dakika",
+        aciklama: "Şarj almayan kulaklık kutusu pinlerini temizleyin.",
+        malzemeler: ["İzopropil Alkol", "Kulak Çöpü", "İnce Cımbız"],
+        adimlar: ["Kutuyu açın.", "Pinlerdeki oksitlenmeyi alkolle temizleyin.", "Test edip kapatın."]
+    },
+    {
+        id: 7,
+        baslik: "Türk Kahvesi Makinesi Sensör Temizliği",
+        kategori: "Ev Aletleri",
+        zorluk: "Kolay",
+        sure: "15 Dakika",
+        aciklama: "Taşma algılamayan cezve sensörünü temizleyin.",
+        malzemeler: ["Nemli Mikrofiber Bez", "Sirke"],
+        adimlar: ["Cihazı fişten çekin.", "Pişirme yuvasındaki gözü silin.", "Kuru bezle kurulayın."]
+    },
+    {
+        id: 8,
+        baslik: "Ütü Tabanı Kireç ve Leke Temizliği",
+        kategori: "Ev Aletleri",
+        zorluk: "Kolay",
+        sure: "20 Dakika",
+        aciklama: "Kıyafetleri yakan kirli ütü tabanını parlatın.",
+        malzemeler: ["Karbonat", "Sirke", "Sünger"],
+        adimlar: ["Karbonat ve sirkeyi macun yapın.", "Tabana sürün.", "Nemli bezle silin."]
+    },
+    {
+        id: 9,
+        baslik: "Saç Kurutma Makinesi Kablo Temassızlığı",
+        kategori: "Ev Aletleri",
+        zorluk: "Orta",
+        sure: "30 Dakika",
+        aciklama: "Temassızlık yapan kabloyu onarın.",
+        malzemeler: ["Kargaburun", "Elektrik Bandı", "Makas"],
+        adimlar: ["Kapağı açın.", "Kırık kablo ucunu kesin.", "Tekrar lehimleyip yalıtın."]
+    },
+    {
+        id: 10,
+        baslik: "Blender Dişlisi Sıkışması Giderme",
+        kategori: "Ev Aletleri",
+        zorluk: "Orta",
+        sure: "35 Dakika",
+        aciklama: "Dönmeyen blender bıçak yatağını sökün.",
+        malzemeler: ["Tornavida", "Makine Yağı"],
+        adimlar: ["Alt vidayı sökün.", "Dişliyi kontrol edin.", "Temizleyip yağlayın."]
+    },
+    {
+        id: 11,
+        baslik: "Elektrikli Süpürge Hortum Tamiri",
+        kategori: "Ev Aletleri",
+        zorluk: "Kolay",
+        sure: "10 Dakika",
+        aciklama: "Delinen süpürge hortumunu hava kaçırmayacak şekilde sarın.",
+        malzemeler: ["Armor Bant / Elektrik Bandı"],
+        adimlar: ["Yırtık bölgeyi temizleyin.", "Bantla sıkıca sarın."]
+    },
+    {
+        id: 12,
+        baslik: "Lavabo Sifon Contası Yenileme",
+        kategori: "Tesisat",
+        zorluk: "Kolay",
+        sure: "25 Dakika",
+        aciklama: "Su akutan evye altı borularını onarın.",
+        malzemeler: ["Yeni Conta", "Kova"],
+        adimlar: ["Sifonu sökün.", "Eski contayı çıkarın.", "Yenisini takıp sıkın."]
+    },
+    {
+        id: 13,
+        baslik: "Mutfak Evyesi Tıkanıklığı Açma",
+        kategori: "Tesisat",
+        zorluk: "Kolay",
+        sure: "20 Dakika",
+        aciklama: "Su gitmeyen lavaboları açın.",
+        malzemeler: ["Lavabo Pompası", "Kaynar Su"],
+        adimlar: ["Sıcak su dökün.", "Pompalama yapın.", "Atıkları temizleyin."]
+    },
+    {
+        id: 14,
+        baslik: "Duş Başlığı Kireç Çözme",
+        kategori: "Tesisat",
+        zorluk: "Kolay",
+        sure: "15 Dakika",
+        aciklama: "Tıkalı duş deliklerini açın.",
+        malzemeler: ["Poşet", "Sirke", "Lastik İp"],
+        adimlar: ["Poşete sirke doldurun.", "Duş başlığına bağlayıp bekletin.", "Fırçalayın."]
+    },
+    {
+        id: 15,
+        baslik: "Oda Kapısı Kolu Yay Tamiri",
+        kategori: "Marangoz",
+        zorluk: "Kolay",
+        sure: "15 Dakika",
+        aciklama: "Aşağı düşen kapı kollarını düzeltin.",
+        malzemeler: ["Alyan Anahtarı", "Yedek Yay"],
+        adimlar: ["Kolu sökün.", "İç yayı değiştirin.", "Vidalayın."]
+    },
+    {
+        id: 16,
+        baslik: "Gardırop Sürgülü Kapı Ayarı",
+        kategori: "Marangoz",
+        zorluk: "Orta",
+        sure: "30 Dakika",
+        aciklama: "Raydan çıkan dolap kapaklarını ayarlayın.",
+        malzemeler: ["Yıldız Tornavida"],
+        adimlar: ["Alt tekerlek vidalarını gevşetin.", "Teraziye alıp sıkın."]
+    },
+    {
+        id: 17,
+        baslik: "Çekmece Teleskopik Ray Değişimi",
+        kategori: "Marangoz",
+        zorluk: "Orta",
+        sure: "25 Dakika",
+        aciklama: "Açılmayan bozuk çekmece raylarını yenileyin.",
+        malzemeler: ["Ray Seti", "Tornavida"],
+        adimlar: ["Çekmeceyi çıkarın.", "Eski rayı sökün.", "Yeni rayı vidalayın."]
+    },
+    {
+        id: 18,
+        baslik: "Pencere Sineklik Tülü Yenileme",
+        kategori: "Ev Bakım",
+        zorluk: "Kolay",
+        sure: "30 Dakika",
+        aciklama: "Yırtılan sineklikleri yenisiyle değiştirin.",
+        malzemeler: ["Sineklik Tülü", "Fitil", "Fitil Çekme Aparatı"],
+        adimlar: ["Eski fitili çıkarın.", "Yeni tülü serip fitili bastırın.", "Fazlalıkları kesin."]
+    },
+    {
+        id: 19,
+        baslik: "Televizyon Kumandası Tuş Temizliği",
+        kategori: "Elektronik",
+        zorluk: "Kolay",
+        sure: "20 Dakika",
+        aciklama: "Basmayan kumandaları temizleyin.",
+        malzemeler: ["Alkol", "Kulak Çöpü"],
+        adimlar: ["Kumandayı açın.", "Devreyi silikon tuşları temizleyin.", "Kapatın."]
+    },
+    {
+        id: 20,
+        baslik: "Telefon Şarj Soketi Tüy Temizliği",
+        kategori: "Telefon",
+        zorluk: "Kolay",
+        sure: "10 Dakika",
+        aciklama: "Şarj almayan telefon girişini temizleyin.",
+        malzemeler: ["Kuru Diş İpi / Kürdan"],
+        adimlar: ["İçindeki tozları nazikçe kazıyıp çıkarın."]
+    },
+    {
+        id: 21,
+        baslik: "Laptop Ekran Menteşe Tamiri",
+        kategori: "Elektronik",
+        zorluk: "İleri",
+        sure: "50 Dakika",
+        aciklama: "Kırılan laptop menteşe yuvalarını sağlamlaştırın.",
+        malzemeler: ["Japon Yapıştırıcısı", "Karbonat"],
+        adimlar: ["Kapağı sökün.", "Kırık yuvayı karbonatla güçlendirip yapıştırın."]
+    },
+    {
+        id: 22,
+        baslik: "Mouse Çift Tıklama Sorunu Onarımı",
+        kategori: "Elektronik",
+        zorluk: "İleri",
+        sure: "40 Dakika",
+        aciklama: "Aşınan fare switch'ini onarın veya değiştirin.",
+        malzemeler: ["Lehim Havyası", "Yedek Switch"],
+        adimlar: ["Mouse'u açın.", "Eski switch'i söküp yenisini lehimleyin."]
+    },
+    {
+        id: 23,
+        baslik: "Airfryer Yağ Çözücü Temizlik",
+        kategori: "Ev Aletleri",
+        zorluk: "Kolay",
+        sure: "20 Dakika",
+        aciklama: "Yağ bağlayan sepetleri arındırın.",
+        malzemeler: ["Yağ Çözücü", "Sıcak Su"],
+        adimlar: ["Sıcak suda bekletin.", "Yağ çözücüyle fırçalayın."]
+    },
+    {
+        id: 24,
+        baslik: "Mikrodalga Fırın Sigorta Değişimi",
+        kategori: "Ev Aletleri",
+        zorluk: "İleri",
+        sure: "30 Dakika",
+        aciklama: "Çalışmayan mikrodalga sigortasını yenileyin.",
+        malzemeler: ["Yedek Cam Sigorta"],
+        adimlar: ["Fişi çekin.", "Arka kapağı açıp patlak sigortayı değiştirin."]
+    },
+    {
+        id: 25,
+        baslik: "Bulaşık Makinesi Filtre Temizliği",
+        kategori: "Ev Aletleri",
+        zorluk: "Kolay",
+        sure: "15 Dakika",
+        aciklama: "Kötü koku yapan filtreleri temizleyin.",
+        malzemeler: ["Bulaşık Deterjanı", "Fırça"],
+        adimlar: ["Filtreyi çevirerek çıkarın.", "Akan suda yıkayıp takın."]
+    },
+    {
+        id: 26,
+        baslik: "Çamaşır Makinesi Deterjan Kutusu Temizliği",
+        kategori: "Ev Aletleri",
+        zorluk: "Kolay",
+        sure: "20 Dakika",
+        aciklama: "Küf tutan gözleri temizleyin.",
+        malzemeler: ["Çamaşır Suyu", "Sünger"],
+        adimlar: ["Kutuyu tamamen çıkarın.", "Fırçalayıp durulayın."]
+    },
+    {
+        id: 27,
+        baslik: "Robot Süpürge Lidar Temizliği",
+        kategori: "Elektronik",
+        zorluk: "Kolay",
+        sure: "10 Dakika",
+        aciklama: "Hata veren yön sensörünü silin.",
+        malzemeler: ["Kulak Çöpü", "Alkol"],
+        adimlar: ["Sensör camını alkolle nazikçe silin."]
+    },
+    {
+        id: 28,
+        baslik: "Bluetooth Hoparlör Batarya Yenileme",
+        kategori: "Elektronik",
+        zorluk: "Orta",
+        sure: "40 Dakika",
+        aciklama: "Şarjı çabuk biten hoparlör pilini değiştirin.",
+        malzemeler: ["Yedek Pil", "Lehim Havyası"],
+        adimlar: ["Kutuyu açın.", "Eski pili söküp yenisini lehimleyin."]
+    },
+    {
+        id: 29,
+        baslik: "Powerbank Devre Kontrolü",
+        kategori: "Elektronik",
+        zorluk: "Orta",
+        sure: "30 Dakika",
+        aciklama: "Şarj etmeyen taşınabilir bataryayı onarın.",
+        malzemeler: ["Multimetre", "Lehim"],
+        adimlar: ["Kapağı açıp kablo bağlantılarını kontrol edin."]
+    },
+    {
+        id: 30,
+        baslik: "Monitör Güç Kablosu Temassızlığı",
+        kategori: "Elektronik",
+        zorluk: "Kolay",
+        sure: "15 Dakika",
+        aciklama: "Görüntü giden ekran kablolarını düzeltin.",
+        malzemeler: ["Yeni Kablo"],
+        adimlar: ["Bağlantıları kontrol edip yenileyin."]
+    },
+    {
+        id: 31,
+        baslik: "Ethernet RJ45 Soket Çakma",
+        kategori: "Ağ",
+        zorluk: "Orta",
+        sure: "10 Dakika",
+        aciklama: "Kırılan internet kablosu ucunu yenileyin.",
+        malzemeler: ["Kablo Pensesi", "RJ45 Konnektör"],
+        adimlar: ["Kabloları renk sırasına göre dizzin.", "Penseyle sıkıştırın."]
+    },
+    {
+        id: 32,
+        baslik: "LED Şerit Işık Ara Bağlantı Lehimleme",
+        kategori: "Aydınlatma",
+        zorluk: "Kolay",
+        sure: "20 Dakika",
+        aciklama: "Kopan şerit LED hatlarını birleştirin.",
+        malzemeler: ["Havya", "Lehim Teli"],
+        adimlar: ["Bakır noktaları lehimle tutturun."]
+    },
+    {
+        id: 33,
+        baslik: "Avize Duy Kablosu Yenileme",
+        kategori: "Aydınlatma",
+        zorluk: "Orta",
+        sure: "25 Dakika",
+        aciklama: "Yanık lamba duyunu değiştirin.",
+        malzemeler: ["Yedek Duy", "Tornavida"],
+        adimlar: ["Elektriği kesin.", "Kabloları yeni duya bağlayın."]
+    },
+    {
+        id: 34,
+        baslik: "Komodin Çekmece Kulbu Sıkılama",
+        kategori: "Marangoz",
+        zorluk: "Kolay",
+        sure: "10 Dakika",
+        aciklama: "Oynayan kulpları sabitleyin.",
+        malzemeler: ["Yıldız Tornavida"],
+        adimlar: ["İç kısımdaki vidayı sıkın."]
+    },
+    {
+        id: 35,
+        baslik: "Yatak Bazası Piston Değişimi",
+        kategori: "Marangoz",
+        zorluk: "Orta",
+        sure: "35 Dakika",
+        aciklama: "Kalkık durmayan baza amortisörünü yenileyin.",
+        malzemeler: ["Yeni Piston Seti", "Alyan"],
+        adimlar: ["Eski pimleri sökün.", "Yeni pistonları takın."]
+    },
+    {
+        id: 36,
+        baslik: "Pencere Kolu Değişimi",
+        kategori: "Ev Bakım",
+        zorluk: "Kolay",
+        sure: "15 Dakika",
+        aciklama: "Kırılan PVC pencere kollarını yenileyin.",
+        malzemeler: ["Yeni Kol", "Tornavida"],
+        adimlar: ["Kapak kapağını kaldırıp vidaları sökün.", "Yenisini takın."]
+    },
+    {
+        id: 37,
+        baslik: "Klozet Şamandıra Ayarı",
+        kategori: "Tesisat",
+        zorluk: "Kolay",
+        sure: "20 Dakika",
+        aciklama: "Sürekli su akutan rezervuarı ayarlayın.",
+        malzemeler: ["Tornavida"],
+        adimlar: ["Kapağı açıp şamandıra seviyesini düşürün."]
+    },
+    {
+        id: 38,
+        baslik: "Mutfak Tezgahı Silikon Yenileme",
+        kategori: "Tesisat",
+        zorluk: "Kolay",
+        sure: "30 Dakika",
+        aciklama: "Küflenen kenar silikonlarını yenileyin.",
+        malzemeler: ["Silikon Tabancası", "Maket Bıçağı"],
+        adimlar: ["Eski silikonu kazıyın.", "Yenisini çekip düzeltin."]
+    },
+    {
+        id: 39,
+        baslik: "Duşakabin Rulman Değişimi",
+        kategori: "Tesisat",
+        zorluk: "Orta",
+        sure: "40 Dakika",
+        aciklama: "Kaymayan duşakabin tekerleklerini değiştirin.",
+        malzemeler: ["Yedek Rulman", "Tornavida"],
+        adimlar: ["Camı söküp tekerlekleri yenileyin."]
+    },
+    {
+        id: 40,
+        baslik: "Gözlük Sapı Vida Sıkma",
+        kategori: "Aksesuar",
+        zorluk: "Kolay",
+        sure: "10 Dakika",
+        aciklama: "Gevşeyen gözlük vidalarını sıkın.",
+        malzemeler: ["Saatçi Tornavidası"],
+        adimlar: ["Menteşe vidasını sıkılaştırın."]
+    },
+    {
+        id: 41,
+        baslik: "Sırt Çantası Fermuar Sürgüsü Değişimi",
+        kategori: "Aksesuar",
+        zorluk: "Orta",
+        sure: "25 Dakika",
+        aciklama: "Kapanmayan fermuarı onarın.",
+        malzemeler: ["Pense", "Yeni Sürgü"],
+        adimlar: ["Eski sürgüyü çıkarıp yenisini takın."]
+    },
+    {
+        id: 42,
+        baslik: "Kemer Delik Açma",
+        kategori: "Aksesuar",
+        zorluk: "Kolay",
+        sure: "10 Dakika",
+        aciklama: "Yeni delik açarak kemeri ayarlayın.",
+        malzemeler: ["Deri Delme Zımbası"],
+        adimlar: ["İşaretleyip zımbayla delin."]
+    },
+    {
+        id: 43,
+        baslik: "Araba Anahtarı Kasa Değişimi",
+        kategori: "Oto",
+        zorluk: "Kolay",
+        sure: "20 Dakika",
+        aciklama: "Kırılan kumanda kasasını yenileyin.",
+        malzemeler: ["Yeni Plastik Kasa"],
+        adimlar: ["İç çipi ve anahtarı yeni kasaya taşıyın."]
+    },
+    {
+        id: 44,
+        baslik: "Araç Silecek Değişimi",
+        kategori: "Oto",
+        zorluk: "Kolay",
+        sure: "10 Dakika",
+        aciklama: "İyi silmeyen silecekleri yenileyin.",
+        malzemeler: ["Yeni Silecek Seti"],
+        adimlar: ["Eski sileceği tırnağından çıkarıp yenisini takın."]
+    },
+    {
+        id: 45,
+        baslik: "Klima Toz Filtresi Yıkama",
+        kategori: "Ev Aletleri",
+        zorluk: "Kolay",
+        sure: "15 Dakika",
+        aciklama: "Klima filtrelerini temizleyin.",
+        malzemeler: ["Su", "Sabun"],
+        adimlar: ["Filtreleri çıkarıp yıkayın ve kurutup takın."]
+    },
+    {
+        id: 46,
+        baslik: "Vantilatör Pervane Temizliği",
+        kategori: "Ev Aletleri",
+        zorluk: "Kolay",
+        sure: "20 Dakika",
+        aciklama: "Tozlanan vantilatör kafesini temizleyin.",
+        malzemeler: ["Nemli Bez"],
+        adimlar: ["Kafesi açıp pervaneyi silin."]
+    },
+    {
+        id: 47,
+        baslik: "Tost Makinesi Plaka Temizliği",
+        kategori: "Ev Aletleri",
+        zorluk: "Kolay",
+        sure: "15 Dakika",
+        aciklama: "Yapışan artıkları temizleyin.",
+        malzemeler: ["Sıcak Su", "Sünger"],
+        adimlar: ["Plakaları söküp yıkayın."]
+    },
+    {
+        id: 48,
+        baslik: "Su Isıtıcı Kireç Çözme",
+        kategori: "Ev Aletleri",
+        zorluk: "Kolay",
+        sure: "15 Dakika",
+        aciklama: "Kettle içindeki kireci yok edin.",
+        malzemeler: ["Limon Tuzu"],
+        adimlar: ["Suyla limon tuzunu kaynatıp durulayın."]
+    },
+    {
+        id: 49,
+        baslik: "Duvar Saati Mekanizma Değişimi",
+        kategori: "Ev Bakım",
+        zorluk: "Kolay",
+        sure: "15 Dakika",
+        aciklama: "Çalışmayan saat mekanizmasını yenileyin.",
+        malzemeler: ["Yeni Saat Motoru"],
+        adimlar: ["Akrep yelkovanı söküp motoru değiştirin."]
+    },
+    {
+        id: 50,
+        baslik: "Ayakkabı Tabanı Yapıştırma",
+        kategori: "Giyim",
+        zorluk: "Kolay",
+        sure: "20 Dakika",
+        aciklama: "Açılan spor ayakkabı tabanını yapıştırın.",
+        malzemeler: ["Jel Yapıştırıcı"],
+        adimlar: ["Yüzeyi temizleyip yapıştırıcı sürün ve presleyin."]
+    },
+    {
+        id: 51,
+        baslik: "Mont Fermuar Diş Düzeltme",
+        kategori: "Giyim",
+        zorluk: "Kolay",
+        sure: "15 Dakika",
+        aciklama: "Takılan mont fermuarını düzeltin.",
+        malzemeler: ["Pense"],
+        adimlar: ["Eğrilen dişi hafifçe düzeltin."]
+    },
+    {
+        id: 52,
+        baslik: "Pantolon Paçası Dikişi",
+        kategori: "Giyim",
+        zorluk: "Kolay",
+        sure: "25 Dakika",
+        aciklama: "Sökülen paçaları dikin.",
+        malzemeler: ["İğne", "İplik"],
+        adimlar: ["İçten gizli dikişle tutturun."]
+    },
+    {
+        id: 53,
+        baslik: "Şemsiye Teli Düzeltme",
+        kategori: "Aksesuar",
+        zorluk: "Orta",
+        sure: "20 Dakika",
+        aciklama: "Bükülen şemsiye telini onarın.",
+        malzemeler: ["İnce Tel", "Pense"],
+        adimlar: ["Kırık noktayı telle sabitleyin."]
+    },
+    {
+        id: 54,
+        baslik: "Valiz Çekçek Kolu Sıkışıklığı Giderme",
+        kategori: "Aksesuar",
+        zorluk: "Orta",
+        sure: "30 Dakika",
+        aciklama: "Açılmayan valiz sapını yağlayın.",
+        malzemeler: ["WD-40 Sprey"],
+        adimlar: ["Raylara sprey sıkıp hareket ettirin."]
+    },
+    {
+        id: 55,
+        baslik: "Bahçe Hortumu Kelepçe Sıkma",
+        kategori: "Bahçe",
+        zorluk: "Kolay",
+        sure: "15 Dakika",
+        aciklama: "Su kaçıran hortum ekini sıkın.",
+        malzemeler: ["Tornavida"],
+        adimlar: ["Kelepçe vidasını sıkılaştırın."]
+    },
+    {
+        id: 56,
+        baslik: "Budama Makası Yay Değişimi",
+        kategori: "Bahçe",
+        zorluk: "Orta",
+        sure: "25 Dakika",
+        aciklama: "Açılmayan bahçe makasını onarın.",
+        malzemeler: ["Yedek Yay"],
+        adimlar: ["Eski yayı çıkarıp yenisini takın."]
+    },
+    {
+        id: 57,
+        baslik: "Bisiklet Patlak Tamiri",
+        kategori: "Bisiklet",
+        zorluk: "Orta",
+        sure: "25 Dakika",
+        aciklama: "İnen bisiklet lastiğini yama yapın.",
+        malzemeler: ["Yama Seti", "Pompa"],
+        adimlar: ["İç lastiği çıkarıp deliği bulun ve yama yapın."]
+    },
+    {
+        id: 58,
+        baslik: "Bisiklet Zinciri Yağlama",
+        kategori: "Bisiklet",
+        zorluk: "Kolay",
+        sure: "15 Dakika",
+        aciklama: "Paslanan zinciri yağlayın.",
+        malzemeler: ["Zincir Yağı", "Bez"],
+        adimlar: ["Zinciri temizleyip yağ damlatın."]
+    },
+    {
+        id: 59,
+        baslik: "Kaykay Rulman Temizliği",
+        kategori: "Spor",
+        zorluk: "Orta",
+        sure: "30 Dakika",
+        aciklama: "Dönmeyen tekerlek rulmanlarını temizleyin.",
+        malzemeler: ["Alkol", "Makine Yağı"],
+        adimlar: ["Rulmanları açıp temizleyin ve yağlayın."]
+    },
+    {
+        id: 60,
+        baslik: "El Feneri Kontak Temizliği",
+        kategori: "Elektronik",
+        zorluk: "Kolay",
+        sure: "10 Dakika",
+        aciklama: "Temassızlık yapan feneri çalıştırın.",
+        malzemeler: ["Zımpara Kağıdı"],
+        adimlar: ["Pil yataklarındaki pası zımparalayın."]
+    },
+    {
+        id: 61,
+        baslik: "Çakmak Gaz Dolumu",
+        kategori: "Aksesuar",
+        zorluk: "Kolay",
+        sure: "10 Dakika",
+        aciklama: "Gazı biten çakmağı doldurun.",
+        malzemeler: ["Gaz Tüpü"],
+        adimlar: ["Tüpü alt yuvaya bastırıp doldurun."]
+    },
+    {
+        id: 62,
+        baslik: "Uzatma Kablosu İç Kontrol",
+        kategori: "Elektronik",
+        zorluk: "Orta",
+        sure: "25 Dakika",
+        aciklama: "Elektrik vermeyen priz grubunu kontrol edin.",
+        malzemeler: ["Tornavida"],
+        adimlar: ["Kapağı açıp kopan kabloyu vidalayın."]
+    },
+    {
+        id: 63,
+        baslik: "Kapı Zili Pil Değişimi",
+        kategori: "Elektronik",
+        zorluk: "Kolay",
+        sure: "10 Dakika",
+        aciklama: "Çalmayan kablosuz zilin pilini yenileyin.",
+        malzemeler: ["Kalem Pil"],
+        adimlar: ["Kapağı açıp pili değiştirin."]
+    },
+    {
+        id: 64,
+        baslik: "Duvar Çatlağı Macunlama",
+        kategori: "Ev Bakım",
+        zorluk: "Orta",
+        sure: "40 Dakika",
+        aciklama: "Duvardaki kılcal çatlakları kapatın.",
+        malzemeler: ["Saten Macun", "Spatula"],
+        adimlar: ["Macunu çekip kuruyunca zımparalayın."]
+    },
+    {
+        id: 65,
+        baslik: "Ahşap Parke Çizik Giderme",
+        kategori: "Marangoz",
+        zorluk: "Kolay",
+        sure: "15 Dakika",
+        aciklama: "Çizilen parkeleri rötuşlayın.",
+        malzemeler: ["Rötuş Kalemi"],
+        adimlar: ["Çiziği kalemle boyayıp parlatın."]
+    },
+    {
+        id: 66,
+        baslik: "Masa Ayağı Sağlamlaştırma",
+        kategori: "Marangoz",
+        zorluk: "Kolay",
+        sure: "10 Dakika",
+        aciklama: "Sallanan masaları sabitleyin.",
+        malzemeler: ["Pul", "Anahtar"],
+        adimlar: ["Gevşeyen somunları pulla birlikte sıkın."]
+    },
+    {
+        id: 67,
+        baslik: "Akıllı Telefon Ekran Koruyucu Değişimi",
+        kategori: "Telefon",
+        zorluk: "Kolay",
+        sure: "10 Dakika",
+        aciklama: "Çatlayan cam filmini yenileyin.",
+        malzemeler: ["Temperli Cam", "Alkol Mendili"],
+        adimlar: ["Ekranı temizleyip yeni camı ortalayarak yapıştırın."]
+    },
+    {
+        id: 68,
+        baslik: "Kablolu Kulaklık Jack Tamiri",
+        kategori: "Elektronik",
+        zorluk: "Orta",
+        sure: "20 Dakika",
+        aciklama: "Ses vermeyen kulaklık ucunu yenileyin.",
+        malzemeler: ["Yedek Jack", "Havya"],
+        adimlar: ["Eski ucu kesip kabloları yeni jacka lehimleyin."]
+    },
+    {
+        id: 69,
+        baslik: "Ütü Su Akıtma Sorunu Çözümü",
+        kategori: "Ev Aletleri",
+        zorluk: "Kolay",
+        sure: "15 Dakika",
+        aciklama: "Tabandan su sızdıran ütüyü kireçten arındırın.",
+        malzemeler: ["Sirke"],
+        adimlar: ["Hazneye sirke koyup buhar verdirerek temizleyin."]
+    },
+    {
+        id: 70,
+        baslik: "Saç Maşası Kablo Dolaşma Önleme",
+        kategori: "Ev Aletleri",
+        zorluk: "Orta",
+        sure: "25 Dakika",
+        aciklama: "Dönmeyen maşa kablo başlığını onarın.",
+        malzemeler: ["Tornavida"],
+        adimlar: ["Kapağı açıp döner mafsalı temizleyin."]
+    },
+    {
+        id: 71,
+        baslik: "El Blenderı Tetik Düğmesi Onarımı",
+        kategori: "Ev Aletleri",
+        zorluk: "İleri",
+        sure: "40 Dakika",
+        aciklama: "Basılı kalmayan blender tuşunu onarın.",
+        malzemeler: ["Yedek Yay"],
+        adimlar: ["Gövdeyi açıp yayı yerine oturtun."]
+    },
+    {
+        id: 72,
+        baslik: "Dijital Baskül Pil Yuvası Temizliği",
+        kategori: "Ev Aletleri",
+        zorluk: "Kolay",
+        sure: "10 Dakika",
+        aciklama: "Oksitlenen baskül yaylarını temizleyin.",
+        malzemeler: ["Sirke", "Kulak Çöpü"],
+        adimlar: ["Oksitleri sirkeyle silip kurulayın."]
+    },
+    {
+        id: 73,
+        baslik: "Fotoğraf Çerçevesi Askı Montajı",
+        kategori: "Ev Bakım",
+        zorluk: "Kolay",
+        sure: "10 Dakika",
+        aciklama: "Duvara asma aparatı takın.",
+        malzemeler: ["Küçük Vida", "Tornavida"],
+        adimlar: ["Askı telini veya demirini vidalayın."]
+    },
+    {
+        id: 74,
+        baslik: "Bere / Atkı Sökük Düzeltme",
+        kategori: "Giyim",
+        zorluk: "Kolay",
+        sure: "10 Dakika",
+        aciklama: "Örgü ipleri kaçan atkıları onarın.",
+        malzemeler: ["Tığ"],
+        adimlar: ["İpi tığ yardımıyla içeri çekip düğümleyin."]
+    },
+    {
+        id: 75,
+        baslik: "Valiz Tekerleği Silikon Yenileme",
+        kategori: "Aksesuar",
+        zorluk: "İleri",
+        sure: "40 Dakika",
+        aciklama: "Parçalanan valiz tekerleklerini yenileyin.",
+        malzemeler: ["Yedek Tekerlek", "Testere"],
+        adimlar: ["Perçini kesip tekerleği değiştirin."]
+    },
+    {
+        id: 76,
+        baslik: "Balkon Saksı Askısı Sabitleme",
+        kategori: "Bahçe",
+        zorluk: "Kolay",
+        sure: "10 Dakika",
+        aciklama: "Sallanan saksı demirlerini sıkın.",
+        malzemeler: ["Anahtar"],
+        adimlar: ["Bağlantı somunlarını sıkılaştırın."]
+    },
+    {
+        id: 77,
+        baslik: "Bisiklet Fren Pabuç Ayarı",
+        kategori: "Bisiklet",
+        zorluk: "Orta",
+        sure: "20 Dakika",
+        aciklama: "Tutmada zorlanan frenleri ayarlayın.",
+        malzemeler: ["Alyan Anahtarı"],
+        adimlar: ["Pabuçları janta sıfırlayıp vidalayın."]
+    },
+    {
+        id: 78,
+        baslik: "Bisiklet Vites Teli Ayarı",
+        kategori: "Bisiklet",
+        zorluk: "Orta",
+        sure: "20 Dakika",
+        aciklama: "Geçmeyen vitesleri ayarlayın.",
+        malzemeler: ["Tornavida"],
+        adimlar: ["Gerginlik somunuyla vites geçişini ayarlayın."]
+    },
+    {
+        id: 79,
+        baslik: "Fitness Direnç Bandı Kontrolü",
+        kategori: "Spor",
+        zorluk: "Kolay",
+        sure: "5 Dakika",
+        aciklama: "Kopmak üzere olan bantları kontrol edin.",
+        malzemeler: ["Pudra"],
+        adimlar: ["Pudralayıp çatlak kontrolü yapın."]
+    },
+    {
+        id: 80,
+        baslik: "Görüntülü Diafon Kablosu Yenileme",
+        kategori: "Elektronik",
+        zorluk: "Orta",
+        sure: "30 Dakika",
+        aciklama: "Ses vermeyen bina diafonunu onarın.",
+        malzemeler: ["Kablo Soyucu"],
+        adimlar: ["Kopan hat uçlarını yenileyip bağlayın."]
+    },
+    {
+        id: 81,
+        baslik: "Halı Kaydırmaz Taban Yenileme",
+        kategori: "Ev Bakım",
+        zorluk: "Kolay",
+        sure: "15 Dakika",
+        aciklama: "Kayan halıların altına tutucu ekleyin.",
+        malzemeler: ["Silikon Tabancası"],
+        adimlar: ["Tabana şeritler halinde silikon sıkıp kurutun."]
+    },
+    {
+        id: 82,
+        baslik: "Ayna Askı Demiri Sağlamlaştırma",
+        kategori: "Ev Bakım",
+        zorluk: "Kolay",
+        sure: "15 Dakika",
+        aciklama: "Oynayan duvar aynasını sabitleyin.",
+        malzemeler: ["Dübel", "Vida"],
+        adimlar: ["Askı yerini daha sağlam dübellerle sabitleyin."]
+    },
+    {
+        id: 83,
+        baslik: "Tablo Askı Çivisi Yenileme",
+        kategori: "Ev Bakım",
+        zorluk: "Kolay",
+        sure: "10 Dakika",
+        aciklama: "Düşen tablolar için yeni yuvaya çivi çakın.",
+        malzemeler: ["Çekiç", "Çelik Çivi"],
+        adimlar: ["Yeni noktaya çivi çakıp tabloyu asın."]
+    },
+    {
+        id: 84,
+        baslik: "Kartonpiyer Alçı Dolgusu",
+        kategori: "Ev Bakım",
+        zorluk: "Orta",
+        sure: "30 Dakika",
+        aciklama: "Ayrılan kartonpiyer boşluklarını kapatın.",
+        malzemeler: ["Saten Alçı", "Su"],
+        adimlar: ["Alçıyı karıştırıp aralara sürün."]
+    },
+    {
+        id: 85,
+        baslik: "Balkon Kapısı Menteşe Ayarı",
+        kategori: "Ev Bakım",
+        zorluk: "Kolay",
+        sure: "20 Dakika",
+        aciklama: "Yere sürten balkon kapısını yükseltin.",
+        malzemeler: ["Alyan"],
+        adimlar: ["Alt menteşe ayar vidasını çevirerek kapıyı kaldırın."]
+    },
+    {
+        id: 86,
+        baslik: "Taharet Musluğu Teflon Bant Yenileme",
+        kategori: "Tesisat",
+        zorluk: "Kolay",
+        sure: "15 Dakika",
+        aciklama: "Dipten su kaçıran musluğu sarın.",
+        malzemeler: ["Teflon Bant", "Anahtar"],
+        adimlar: ["Musluğu söküp dişliye teflon sarın ve takın."]
+    },
+    {
+        id: 87,
+        baslik: "Banyo Havlupan Vana Kaçağı Giderme",
+        kategori: "Tesisat",
+        zorluk: "Orta",
+        sure: "25 Dakika",
+        aciklama: "Sızdıran radyatör vanasını sıkın.",
+        malzemeler: ["Kurbağacık"],
+        adimlar: ["Rakor somunlarını sıkılaştırın."]
+    },
+    {
+        id: 88,
+        baslik: "Cüzdan Dikiş Söküğü Tamiri",
+        kategori: "Aksesuar",
+        zorluk: "Kolay",
+        sure: "20 Dakika",
+        aciklama: "Açılan deri cüzdan dikişini dikin.",
+        malzemeler: ["Mumlu İp", "Deri İğnesi"],
+        adimlar: ["Eski deliklerden iğneyle geçerek dikin."]
+    },
+    {
+        id: 89,
+        baslik: "Kemer Toka Vidası Sıkma",
+        kategori: "Aksesuar",
+        zorluk: "Kolay",
+        sure: "10 Dakika",
+        aciklama: "Oynayan kemer tokasını sabitleyin.",
+        malzemeler: ["Düz Tornavida"],
+        adimlar: ["Aradaki mini vidayı sıkın."]
+    },
+    {
+        id: 90,
+        baslik: "Anahtarlık Halka Yenileme",
+        kategori: "Aksesuar",
+        zorluk: "Kolay",
+        sure: "5 Dakika",
+        aciklama: "Gevşeyen anahtarlık halkasını değiştirin.",
+        malzemeler: ["Yeni Halka"],
+        adimlar: ["Eski halkayı çıkarıp yenisini takın."]
+    },
+    {
+        id: 91,
+        baslik: "Araç İç Tavan Ampulü Değişimi",
+        kategori: "Oto",
+        zorluk: "Kolay",
+        sure: "15 Dakika",
+        aciklama: "Yanmayan araç içi lambasını değiştirin.",
+        malzemeler: ["Plastik Tornavida", "W5W Ampul"],
+        adimlar: ["Kapağı söküp patlak ampulü yenileyin."]
+    },
+    {
+        id: 92,
+        baslik: "Oto Paspas Klipsi Takma",
+        kategori: "Oto",
+        zorluk: "Kolay",
+        sure: "10 Dakika",
+        aciklama: "Kayan sürücü paspasını sabitleyin.",
+        malzemeler: ["Sabitleme Klipsi"],
+        adimlar: ["Tabana klipsi sabitleyip paspası takın."]
+    },
+    {
+        id: 93,
+        baslik: "Direksiyon Kılıfı Dikimi",
+        kategori: "Oto",
+        zorluk: "Orta",
+        sure: "45 Dakika",
+        aciklama: "Derisi aşınan direksiyona kılıf dikin.",
+        malzemeler: ["Kılıf ve Özel İpi"],
+        adimlar: ["Kılıfı geçirip karşılıklı ilmekleri dikerek sıkın."]
+    },
+    {
+        id: 94,
+        baslik: "Ekmek Kızartma Kırıntı Tepsisi Temizliği",
+        kategori: "Ev Aletleri",
+        zorluk: "Kolay",
+        sure: "5 Dakika",
+        aciklama: "Alt tabandaki yanık ekmek kırıntılarını temizleyin.",
+        malzemeler: ["Islak Mendil"],
+        adimlar: ["Alt tepsiyi çekip boşaltın ve silin."]
+    },
+    {
+        id: 95,
+        baslik: "Portmanto Askılık Vida Sağlamlaştırma",
+        kategori: "Marangoz",
+        zorluk: "Kolay",
+        sure: "15 Dakika",
+        aciklama: "Duvardan kurtulan askılığı sağlamlaştırın.",
+        malzemeler: ["Daha Kalın Dübel", "Matkap"],
+        adimlar: ["Delikleri büyüterek yeni dübel çakıp vidalayın."]
+    },
+    {
+        id: 96,
+        baslik: "Wi-Fi Router Anten Kontrolü",
+        kategori: "Ağ",
+        zorluk: "Kolay",
+        sure: "10 Dakika",
+        aciklama: "İnternet çekim gücünü artıran antenleri sıkın.",
+        malzemeler: ["El Gücü"],
+        adimlar: ["Gevşeyen anten mafsallarını saat yönünde sıkın."]
+    },
+    {
+        id: 97,
+        baslik: "T-Shirt Sökük Kol Dikişi",
+        kategori: "Giyim",
+        zorluk: "Kolay",
+        sure: "15 Dakika",
+        aciklama: "Koltuk altı sökülen tişörtü dikin.",
+        malzemeler: ["İğne", "Uygun Renk İplik"],
+        adimlar: ["İçten düz dikişle söküğü kapatın."]
+    },
+    {
+        id: 98,
+        baslik: "Bahçe Sulama Tabancası Conta Değişimi",
+        kategori: "Bahçe",
+        zorluk: "Kolay",
+        sure: "10 Dakika",
+        aciklama: "Su kaçıran hortum tabancasını onarın.",
+        malzemeler: ["Yedek Kauçuk Conta"],
+        adimlar: ["Giriş rakorunu söküp eski contayı yenisiyle değiştirin."]
+    },
+    {
+        id: 99,
+        baslik: "Masa Lambası Duy Temassızlığı",
+        kategori: "Aydınlatma",
+        zorluk: "Orta",
+        sure: "20 Dakika",
+        aciklama: "Yanıp sönen abajur veya lambayı onarın.",
+        malzemeler: ["Kargaburun", "Tornavida"],
+        adimlar: ["Fişi çekip içindeki bakır yaprağı yukarı kaldırın."]
+    },
+    {
+        id: 100,
+        baslik: "Sigorta Kutusu Etiketleme",
+        kategori: "Elektrik",
+        zorluk: "İleri",
+        sure: "20 Dakika",
+        aciklama: "Hangi sigortanın nereye ait olduğunu düzenleyin.",
+        malzemeler: ["Etiket Makinesi / Kalem"],
+        adimlar: ["Odaları test edip sigorta kapaklarına etiket yapıştırın."]
+    },
 
-            // Bilgisayar ve Donanım (PC-201 / PC-220)
-            { id: 21, baslik: "Mekanik Klavye Switch Değişimi", kategori: "Bilgisayar", zorluk: "Orta", sure: "20 Dakika", ikon: "fa-keyboard", gerekliAraclar: ["Switch Çektirme", "Havya"], adımlar: [
-                "Tuş başlıklarını (keycap) tuş sökme aparatı ile yukarı doğru çekerek çıkarın.",
-                "Klavyenin alt kasasını açarak devre kartına (PCB) arka kısımdan ulaşın.",
-                "Arızalı switch'in arkadaki iki lehim bacağını havya ve pompa ile vakumlayarak temizleyin.",
-                "Ön taraftan switch çekme maşası ile arızalı switch'i yukarı çekerek çıkarın.",
-                "Yeni mekanik switch'i pinleri bükmeden yuvaya doğruca bastırarak oturtun.",
-                "Arka taraftan bacakları tekrar lehimleyip tuş başlığını takarak test edin."
-            ]},
-            { id: 22, baslik: "Oyuncu Faresi Encoder Değişimi", kategori: "Bilgisayar", zorluk: "İleri", sure: "30 Dakika", ikon: "fa-computer-mouse", gerekliAraclar: ["Havya", "Tornavida"], adımlar: [
-                "Mouse altındaki Teflon kaydırıcıları sökerek gizli gövde vidalarına ulaşın ve sökün.",
-                "Üst kapağı nazikçe kaldırıp ana kartı tekerlek mekanizmasıyla birlikte dışarı çıkarın.",
-                "Tekerlek hareketini sağlayan encoder bileşeninin bacaklarındaki lehimleri havya ile eritin.",
-                "Eski encoder'ı söküp aynı mil yüksekliğine sahip yeni encoder parçasını yuvaya takın.",
-                "Parçanın bacaklarını karta lehimleyip mouse'u toplama aşamasına geçin.",
-                "Tekerleği çevirerek sayfaların düzgün kayıp kaymadığını test edin."
-            ]},
-            { id: 23, baslik: "Dizüstü Bilgisayar Menteşesi", kategori: "Bilgisayar", zorluk: "İleri", sure: "40 Dakika", ikon: "fa-laptop", gerekliAraclar: ["Epoksi Yapıştırıcı"], adımlar: [
-                "Laptopun alt kapağını ve bataryasını sökerek ekran ve alt kasa bağlantı alanına erişin.",
-                "Kırılan veya yerinden kopan pirinç somunları plastikten ayırıp temizleyin.",
-                "Menteşe sertliğini gevşetmek için üzerindeki somunu hafifçe bollaştırın.",
-                "Kasa içerisindeki plastik yuvalara çelik güçlendirici epoksi yapıştırıcı dökün.",
-                "Somunları epoksi içerisine gömerek 24 saat donmaya bırakın.",
-                "Ekranı açıp kapatarak menteşe direncini ve sağlamlığını kontrol edin."
-            ]},
-            { id: 24, baslik: "Ekran Kartı Soğutma Fanı", kategori: "Bilgisayar", zorluk: "Orta", sure: "25 Dakika", ikon: "fa-fan", gerekliAraclar: ["Yıldız Tornavida"], adımlar: [
-                "Ekran kartını kasadan söküp masaya alın.",
-                "Plastik fan çerçevesini soğutucu blok üzerine bağlayan küçük vidaları sökün.",
-                "Fan kablosunu ekran kartı üzerindeki soketinden nazikçe çıkarın.",
-                "Aynı model ve kanat yapısına sahip yeni fanı yerine vidalayın.",
-                "Fan kablosunu karta takıp kabloyu düzenleyin.",
-                "Ekran kartını tekrar kasaya takıp yük altında sıcaklık testi yapın."
-            ]},
-            { id: 25, baslik: "İşlemci Sıvı Soğutma Pompası", kategori: "Bilgisayar", zorluk: "İleri", sure: "45 Dakika", ikon: "fa-water", gerekliAraclar: ["Termal Macun"], adımlar: [
-                "Bilgisayarı kapatıp fişi çekin ve radyatör/pompa vidalarını anakarttan sökün.",
-                "Pompa içerisindeki sıvı akışını engelleyen tortu veya tıkanıklığı kontrol edin.",
-                "İşlemci üzerindeki eski termal macunu alkollü bezle tamamen temizleyin.",
-                "Pompa tabanına ve işlemci üzerine taze yüksek kaliteli termal macun sürün.",
-                "Sıvı soğutma pompasını işlemci üzerine dengeli vidalarla yeniden monte edin.",
-                "Sistemi çalıştırıp pompa devrini ve CPU sıcaklıklarını izleyin."
-            ]},
-            { id: 26, baslik: "Güç Kaynağı (PSU) Kondansatörü", kategori: "Bilgisayar", zorluk: "Uzman", sure: "50 Dakika", ikon: "fa-bolt", "gerekliAraclar": ["Deşarj Aleti"], adımlar: [
-                "Güç kaynağını kasadan sökün ve metal dış kapağını açın (Yüksek voltaj tehlikesine dikkat edin).",
-                "Ana kapasitörleri uygun direnç veya deşarj aleti ile tamamen deşarj edin.",
-                "Şişmiş veya patlamış durumdaki kondansatörlerin kart üzerindeki lehimlerini ısıtın.",
-                "Arızalı kondansatörleri söküp aynı voltaj ve kapasite değerindeki yenilerini takın.",
-                "Lehim bacaklarını sağlamlaştırıp kartı dikkatlice kasaya geri yerleştirin.",
-                "PSU'yu test cihazına veya sisteme bağlayarak voltaj çıkışlarını kontrol edin."
-            ]},
-            { id: 27, baslik: "Monitör Besleme Kartı", kategori: "Bilgisayar", zorluk: "Uzman", sure: "45 Dakika", ikon: "fa-tv", gerekliAraclar: ["Multimetre"], adımlar: [
-                "Monitörün arka plastik kasasını tırnaklarından ayırarak besleme (power) kartına ulaşın.",
-                "Giriş sigortasını ve diyotları multimetre ile kısa devre testine tabi tutun.",
-                "Şişik kondansatörleri veya soğuk lehim noktalarını havya ile yenileyin.",
-                "Arızalı entegreleri değiştirip kartı terminal çıkışlarından kontrol edin.",
-                "Kasayı kapatıp monitöre güç vererek görüntü gelip gelmediğini test edin."
-            ]},
-            { id: 28, baslik: "RAM Slotu Temizliği", kategori: "Bilgisayar", zorluk: "Kolay", sure: "10 Dakika", ikon: "fa-memory", gerekliAraclar: ["Silgi", "Sprey"], adımlar: [
-                "Bilgisayarı kapatıp RAM modüllerini slot kilitlerini açarak sökün.",
-                "RAM modüllerinin altın sarısı pin uçlarını yumuşak bir silgi ile nazikçe temizleyin.",
-                "Slot içerisindeki tozları basınçlı hava spreyi veya ince fırça ile uzaklaştırın.",
-                "Kontak spreyini pamuk yardımıyla hafifçe slot içine uygulayın.",
-                "RAM'leri yuvalarına tırnaklar 'klik' sesini çıkarana kadar tam oturtun.",
-                "Bilgisayarı açıp belleklerin eksiksiz tanındığını kontrol edin."
-            ]},
-            { id: 29, baslik: "M.2 SSD Soğutucu Pad", kategori: "Bilgisayar", zorluk: "Kolay", sure: "10 Dakika", ikon: "fa-hard-drive", gerekliAraclar: ["Cımbız"], adımlar: [
-                "Anakart üzerindeki M.2 SSD soğutucu bloğun vidalarını sökün.",
-                "Eski, kurumuş veya yırtılmış termal pedi cımbızla yuvadan kaldırın.",
-                "SSD üzerindeki kalıntıları alkolle temizleyip yeni termal padin koruyucu jelatinini soyun.",
-                "Yeni termal pedi SSD çipleri üzerine düzgünce yapıştırın.",
-                "Soğutucu bloğu tekrar üzerine kapatıp vidalarını sıkın.",
-                "Disk sıcaklıklarını test yazılımı ile gözlemleyin."
-            ]},
-            { id: 30, baslik: "Kasa Ön Panel USB Portu", kategori: "Bilgisayar", zorluk: "Orta", sure: "20 Dakika", ikon: "fa-usb", gerekliAraclar: ["Tornavida"], adımlar: [
-                "Kasanın ön kapak panelini tırnaklarından çekerek gövdeden ayırın.",
-                "USB port kartını sabitleyen küçük vidaları sökün.",
-                "İçeride eğilmiş veya kırılmış olan USB pinlerini kontrol edin.",
-                "Gerekirse yeni ön panel USB modülünü kablosuyla birlikte kasaya monte edin.",
-                "Kabloyu anakart üzerindeki USB port pinlerine kullanım kılavuzuna göre takın.",
-                "Ön porta USB bellek takarak veri aktarımını test edin."
-            ]},
-            { id: 31, baslik: "Laptop Şarj Soketi (DC Jack)", kategori: "Bilgisayar", zorluk: "İleri", sure: "40 Dakika", ikon: "fa-plug", gerekliAraclar: ["Havya"], adımlar: [
-                "Laptopu tamamen sökerek anakartı dışarı çıkarın.",
-                "Kırık veya temassızlık yapan DC Jack soketinin kart üzerindeki lehimlerini eritin.",
-                "Soketi anakarttan söküp pad yollarının sağlamlığını kontrol edin.",
-                "Aynı model yedek DC Jack soketini karta yerleştirip sağlamca lehimleyin.",
-                "Anakartı kasaya yerleştirip çevre birimlerini toplayın.",
-                "Adaptörü takarak şarj ışığının yandığını doğrulayın."
-            ]},
-            { id: 32, baslik: "Ethernet Port Soketi", kategori: "Bilgisayar", zorluk: "İleri", sure: "30 Dakika", ikon: "fa-ethernet", "gerekliAraclar": ["Havya"], adımlar: [
-                "Ağ kartını veya anakartı sökerek arızalı RJ45 ethernet soketine erişin.",
-                "Soketin metal koruma tırnaklarını ve pin lehimlerini havya ile ısıtarak sökün.",
-                "Yeni RJ45 ethernet soketini kart üzerindeki deliklere oturtun.",
-                "Tüm pinleri ve dış metal kılıf sabitleme ayaklarını lehimleyin.",
-                "Kartı yerine monte edip ethernet kablosu takarak internet bağlantısını test edin."
-            ]},
-            { id: 33, baslik: "Wi-Fi Kartı Anten Kablosu", kategori: "Bilgisayar", zorluk: "Kolay", sure: "15 Dakika", ikon: "fa-wifi", gerekliAraclar: ["Cımbız"], adımlar: [
-                "Laptopun alt kapağını sökerek kablosuz ağ (Wi-Fi) kartına ulaşın.",
-                "Yerinden çıkmış veya kopmuş olan mini altın renklianten klipsini cımbızla tutun.",
-                "Kablonun ucunu Wi-Fi kartı üzerindeki uygun terminale (Main/Aux) hizalayın.",
-                "Hafifçe üzerine bastırarak 'klik' sesiyle oturmasını sağlayın.",
-                "Kablolama kanalına teli yerleştirip kapağı kapatın.",
-                "İnternet ağlarının çekim gücünü kontrol edin."
-            ]},
-            { id: 34, baslik: "Harici Ses Kartı Potansiyometresi", kategori: "Bilgisayar", zorluk: "Orta", sure: "20 Dakika", ikon: "fa-sliders", gerekliAraclar: ["Sprey"], adımlar: [
-                "Ses kartının dış metal veya plastik koruma kasasını vidalarını sökerek çıkarın.",
-                "Cazırtı yapan ses düğmesinin (potansiyometrenin) metal gövdesi üzerindeki küçük boşluğa kontak spreyi sıkın.",
-                "Düğmeyi sağa sola hızlıca birkaç kez çevirerek spreyin içeri nüfuz etmesini sağlayın.",
-                "Kart üzerindeki tozları temizleyip kasayı kapatın.",
-                "Kulaklık bağlayarak ses tekerleğinde parazit olup olmadığını test edin."
-            ]},
-            { id: 35, baslik: "Çizim Tableti Kalem Ucu", kategori: "Bilgisayar", zorluk: "Kolay", sure: "2 Dakika", ikon: "fa-pen", gerekliAraclar: ["Cımbız"], adımlar: [
-                "Aşınmış veya eğilmiş olan kalem ucunu cımbız veya uç sökme halkasıyla kavrayın.",
-                "Ucu kaleme zarar vermeden düz bir açıyla dışarı doğru çekip çıkarın.",
-                "Yeni yedek kalemin ucunu parmakla veya cımbızla yuvasına itin.",
-                "Ucun tam oturduğundan ve gevşek kalmadığından emin olun.",
-                "Tablet üzerinde çizim yaparak basınç algılamasını test edin."
-            ]},
-            { id: 36, baslik: "Kasa Fanı Rulmanı", kategori: "Bilgisayar", zorluk: "Kolay", sure: "15 Dakika", ikon: "fa-fan", gerekliAraclar: ["Makine Yağı"], adımlar: [
-                "Ses yapan veya dönmeyen kasayı söküp fanı masaüstüne alın.",
-                "Fanın arkasında bulunan marka etiketini kaldırarak ortadaki mil tapasına ulaşın.",
-                "Küçük lastik tıpayı ince bir iğne yardımıyla kenara kaldırın.",
-                "Ortadaki metal mil yatağına bir damla ince makine yağı damlatın.",
-                "Etiketi tekrar kapatıp fanı elinizle çevirerek yağın dağılmasını sağlayın.",
-                "Fanı vidalayıp sessiz çalışıp çalışmadığını test edin."
-            ]},
-            { id: 37, baslik: "CD/DVD Sürücü Optik Okuyucu", kategori: "Bilgisayar", zorluk: "Orta", sure: "25 Dakika", ikon: "fa-compact-disc", gerekliAraclar: ["Alkol"], adımlar: [
-                "Sürücü tepesini açmak için iğne deliğine tel sokup tepsiyi dışarı çıkarın.",
-                "Sürücünün alt veya üst koruma sacını sökerek lazer göz mekanizmasına erişin.",
-                "Pamuklu kulak çubuğunu izopropil alkole batırın.",
-                "Lazer gözü merceğini çizmeden nazikçe silerek üzerindeki filmi kaldırın.",
-                "Mekanik hareketli kızak dişlilerine hafif yağ sürüp kasayı kapatın.",
-                "Bir disk takarak okuma hızını test edin."
-            ]},
-            { id: 38, baslik: "Sunucu Hard Disk Kızağı", kategori: "Bilgisayar", zorluk: "Kolay", sure: "5 Dakika", ikon: "fa-server", gerekliAraclar: ["Tornavida"], adımlar: [
-                "Sunucu kasasından arızalı disk kızağını serbest bırakma mandalına basarak çıkarın.",
-                "Disk kızağının yan plastik sabitleme pimlerini veya vidalarını sökün.",
-                "Sabit diski kızaktan ayırıp yeni diski aynı yuvaya oturtun.",
-                "Sabitleme pimlerini veya vidalarını sıkarak diski kızakta sabitleyin.",
-                "Kızağı sunucu yuvasına iterek LED ışıklarının yanmasını gözlemleyin."
-            ]},
-            { id: 39, baslik: "KVM Switch Devresi", kategori: "Bilgisayar", zorluk: "Orta", sure: "20 Dakika", ikon: "fa-code-branch", gerekliAraclar: ["Tornavida"], adımlar: [
-                "KVM switch cihazının dış muhafazasını sökün.",
-                "Görüntü ve klavye/fare sinyallerini değiştiren entegre bacaklarını kontrol edin.",
-                "Tetikleme butonlarının arkasındaki lehim noktalarını tazeleyin.",
-                "Giriş soketlerinde oksitlenme varsa alkolle temizleyin.",
-                "Cihazı kapatıp bilgisayarlar arası geçiş testi yapın."
-            ]},
-            { id: 40, baslik: "Nostaljik Anakart Pili", kategori: "Bilgisayar", zorluk: "Kolay", sure: "5 Dakika", ikon: "fa-microchip", gerekliAraclar: ["Yok"], adımlar: [
-                "Bilgisayarı kapatıp güç kablosunu prizden çıkarın.",
-                "Anakart üzerindeki yuvarlak metal yuvada bulunan CR2032 pili bulun.",
-                "Pil yuvasındaki metal sabitleme tırnağını hafifçe yana doğru itin.",
-                "Eski pili yuvadan çıkarıp yeni CR2032 pili artı (+) yüzü yukarı bakacak şekilde takın.",
-                "Tırnağın pili sıkıca kavradığından emin olun.",
-                "Sistemi açıp BIOS tarih ve saat ayarlarının sıfırlanmadığını kontrol edin."
-            ]},
-
-            // Ev Aletleri (EVT-301 / EVT-320)
-            { id: 41, baslik: "Kahve Makinesi Su Pompası", kategori: "Ev Aletleri", zorluk: "Orta", sure: "25 Dakika", ikon: "fa-mug-hot", gerekliAraclar: ["Tornavida"], adımlar: [
-                "Kahve makinesinin su haznesini boşaltıp dış gövde vidalarını sökün.",
-                "Vibrasyonlu su pompasının silikon hortum bağlantı kelepçelerini çıkarın.",
-                "Pompayı yerinden söküp kireçlenmiş iç vanasını sirke veya kireç çözücü ile temizleyin.",
-                "Pompa bobin direncini kontrol edip gerekirse yenisiyle değiştirin.",
-                "Hortumları sızdırmazlık sağlayacak şekilde tekrar kelepçeleyin.",
-                "Makineyi toplayıp su akış testini gerçekleştirin."
-            ]},
-            { id: 42, baslik: "Tost Makinesi Rezistansı", kategori: "Ev Aletleri", zorluk: "İleri", sure: "35 Dakika", ikon: "fa-bread-slice", gerekliAraclar: ["Pense"], adımlar: [
-                "Tost makinesinin alt tabanını ve yan kapaklarını sökerek rezistans terminallerine ulaşın.",
-                "Multimetre ile rezistans tellerinin kopuk olup olmadığını ölçün.",
-                "Kopan veya yanan rezistans terminal kablosunu penseyle sıkarak yenileyin.",
-                "Rezistansın plakalar altına düzgün oturduğundan emin olun.",
-                "Kablonun ısıya dayanıklı yalıtkan makaron ile kaplı olduğundan emin olun.",
-                "Makineyi kapatıp ısıtma testini yapın."
-            ]},
-            { id: 43, baslik: "Blender Bıçak Rulmanı", kategori: "Ev Aletleri", zorluk: "Orta", sure: "20 Dakika", ikon: "fa-blender", gerekliAraclar: ["Pense"], adımlar: [
-                "Blender sürahisinin altındaki sabitleme somununu özel anahtar veya pense ile sökün.",
-                "Bıçak milini ve sızdırmazlık contasını hazneden dışarı çıkarın.",
-                "Su sızdırmasına neden olan aşınmış keçeyi ve rulmanı yenisiyle değiştirin.",
-                "Yeni contayı yerine oturtup bıçak milini sıkıca sabitleyin.",
-                "Hazneye su doldurarak alt kısımdan sızdırma yapıp yapmadığını test edin."
-            ]},
-            { id: 44, baslik: "Saç Kurutma Makinesi Motoru", kategori: "Ev Aletleri", zorluk: "Orta", sure: "20 Dakika", ikon: "fa-wind", gerekliAraclar: ["Tornavida"], adımlar: [
-                "Makinenin gövde birleşim vidalarını sökerek plastik kabukları ayırın.",
-                "Pervaneye ve motor miline dolanmış olan saçları ve tozları temizleyin.",
-                "Motor kömürlerinin bitip bitmediğini kontrol edin.",
-                "Motor yataklarına bir damla makine yağı damlatarak dönmesini rahatlatın.",
-                "Kabloların anahtara doğru bağlandığından emin olarak gövdeyi kapatın.",
-                "Hava üfleme ve ısıtma kademelerini test edin."
-            ]},
-            { id: 45, baslik: "Elektrikli Süpürge Kablo Sarma", kategori: "Ev Aletleri", zorluk: "İleri", sure: "30 Dakika", ikon: "fa-plug-circle-bolt", gerekliAraclar: ["Tornavida"], adımlar: [
-                "Süpürgenin alt gövde vidalarını sökerek kablo sarma mekanizması makarasına erişin.",
-                "Makaranın içindeki yay mekanizmasının tansiyonunu (kurulumunu) kontrol edin.",
-                "Dışarı çıkmayan veya geri sarılmayan kablonun makara yayını kurun.",
-                "Kablo uçlarındaki bakır sürgülü temas bileziklerini alkolle temizleyin.",
-                "Makarayı yerine oturtup kablonun rahatça sarılıp sarılmadığını test edin.",
-                "Süpürge kasasını kapatıp vidalayın."
-            ]},
-            { id: 46, baslik: "Ütü Termostat Düğmesi", kategori: "Ev Aletleri", zorluk: "Kolay", sure: "10 Dakika", ikon: "fa-fire", gerekliAraclar: ["Tornavida"], adımlar: [
-                "Ütünün üst plastik termostat ayar düğmesini yukarı doğru çekerek sökün.",
-                "Altındaki metal milin ve yay mekanizmasının konumunu kontrol edin.",
-                "Oksitlenen veya kararan termostat kontak uçlarını ince zımpara ile temizleyin.",
-                "Düğmeyi doğru sıcaklık derecesi işaretine denk gelecek şekilde yerine bastırın.",
-                "Ütüyü fişe takıp termostatın ısı kesip kesmediğini test edin."
-            ]},
-            { id: 47, baslik: "Mikrodalga Fırın Magnetronu", kategori: "Ev Aletleri", zorluk: "Uzman", sure: "45 Dakika", ikon: "fa-burger", "gerekliAraclar": ["İzole Tornavida"], adımlar: [
-                "Fırının fişini çekin ve yüksek voltaj kondansatörünü mutlaka izole tornavida ile deşarj edin.",
-                "Metal dış kabini sökerek yan taraftaki magnetron parçasını bulun.",
-                "Magnetronu sabitleyen vidaları ve fiş bağlantılarını sökün.",
-                "Anten ucu yanmış veya arızalı magnetronu özdeş yenisiyle değiştirin.",
-                "Parçayı vidalayıp kabloları takın ve kasayı kapatın.",
-                "İçine bir bardak su koyarak ısıtma testi yapın."
-            ]},
-            { id: 48, baslik: "Su Isıtıcı Otomatik Anahtarı", kategori: "Ev Aletleri", zorluk: "Orta", sure: "15 Dakika", ikon: "fa-kettle", gerekliAraclar: ["Tornavida"], adımlar: [
-                "Kettle'ın sap altındaki vidalarını sökerek buhar anahtarı mekanizmasına ulaşın.",
-                "Kireçlenme nedeniyle takılan bimetal plaka ve tetik kolunu kontrol edin.",
-                "Bölgedeki kireç artıklarını sirke ile temizleyip hareketli kolları yağlayın.",
-                "Anahtar yayının tansiyonunu kontrol edip yerine oturtun.",
-                "Gövdeyi birleştirip su kaynattıktan sonra otomatik atıp atmadığını test edin."
-            ]},
-            { id: 49, baslik: "Dikiş Makinesi Masura Sarıcı", kategori: "Ev Aletleri", sağla: "15 Dakika", zorluk: "Kolay", sure: "15 Dakika", ikon: "fa-shirt", gerekliAraclar: ["Tornavida"], adımlar: [
-                "Dikiş makinesinin üst kapak vidalarını sökerek masura sarma miline erişin.",
-                "Masura sarma milindeki aşınmış lastik kavramayı (bobin lastiğini) çıkarın.",
-                "Aynı çapta yeni lastik halkayı mile takın.",
-                "Mili hareket ettiren yay mekanizmasının ayarını kontrol edin.",
-                "Kapağı kapatıp masura sarma fonksiyonunu test edin."
-            ]},
-            { id: 50, baslik: "Saç Maşası Isıtıcı Rezistansı", kategori: "Ev Aletleri", zorluk: "Orta", sure: "20 Dakika", ikon: "fa-fire-flame-simple", gerekliAraclar: ["Kargaburun"], adımlar: [
-                "Saç maşasının menteşe kapağını ve sap vidalarını sökün.",
-                "Metal maşa silindiri içindeki seramik ısıtıcı tüpü dışarı çıkarın.",
-                "Kopan fiş bağlantı kablolarını ve ısıya dayanıklı kılıfları yenileyin.",
-                "Isıtıcı rezistansı yuvaya tam oturacak şekilde yerleştirin.",
-                "Sapı kapatıp maşaya enerji vererek ısınma derecesini kontrol edin."
-            ]},
-            { id: 51, baslik: "Vantilatör Salınım Dişlisi", kategori: "Ev Aletleri", zorluk: "Orta", sure: "25 Dakika", ikon: "fa-fan", gerekliAraclar: ["Gres Yağı"], adımlar: [
-                "Vantilatör motorunun arkasındaki plastik şanzıman kutusu kapağını sökün.",
-                "Sağa sola dönmeyi sağlayan plastik salınım dişlisini ve milini çıkarın.",
-                "Dişli üzerindeki sıyrılmış veya aşınmış dişleri kontrol edip yenisiyle değiştirin.",
-                "Kutunun içine bolca gres yağı sürün.",
-                "Kapağı kapatıp vantilatörün başlık salınım fonksiyonunu test edin."
-            ]},
-            { id: 52, baslik: "Robot Süpürge Yan Fırça Motoru", kategori: "Ev Aletleri", zorluk: "Kolay", sure: "15 Dakika", ikon: "fa-robot", gerekliAraclar: ["Yıldız Tornavida"], adımlar: [
-                "Robot süpürgeyi ters çevirip alt kapak vidalarını sökün.",
-                "Arızalı yan fırça motorunun soketini anakarttan çıkarın.",
-                "Motoru sabitleyen vidaları söküp yenisiyle değiştirin.",
-                "Soketi karta takıp yan fırçayı yerine vidalayın.",
-                "Süpürgeyi açıp yan fırçanın dönme fonksiyonunu test edin."
-            ]},
-            { id: 53, baslik: "Çamaşır Makinesi Filtresi", kategori: "Ev Aletleri", zorluk: "Kolay", sure: "10 Dakika", ikon: "fa-faucet", "gerekliAraclar": ["Leğen"], adımlar: [
-                "Çamaşır makinesinin alt ön küçük servis kapağını açın.",
-                "İçeride kalabilecek suyun akması için altına sığ bir leğen ve bez koyun.",
-                "Tahliye filtresini saat yönünün tersine yavaşça çevirerek gevşetin.",
-                "Filtre içerisine sıkışan madeni para, tüy ve yabancı cisimleri temizleyin.",
-                "Filtre yuvasındaki contayı kontrol edip filtreyi saat yönünde sıkıca kapatın.",
-                "Makineye su aldırıp alt kısımdan kaçak olup olmadığını test edin."
-            ]},
-            { id: 54, baslik: "Bulaşık Makinesi Pervanesi", kategori: "Ev Aletleri", zorluk: "Kolay", sure: "5 Dakika", ikon: "fa-utensils", gerekliAraclar: ["Kürdan"], adımlar: [
-                "Bulaşık makinesinin alt veya üst sepetini dışarı doğru çekin.",
-                "Pervaneyi ortadaki somun veya tırnaktan kurtararak yukarı çekip çıkarın.",
-                "Pervane deliklerine sıkışmış kireç veya yemek artığı parçalarını kürdanla temizleyin.",
-                "Pervaneyi bol su altında yıkayıp tıkanıklık kalmadığından emin olun.",
-                "Pervaneyi yuvasına 'klik' sesiyle oturana kadar bastırın ve serbestçe dönmesini test edin."
-            ]},
-            { id: 55, baslik: "Buzdolabı Kapı Contası", kategori: "Ev Aletleri", zorluk: "Kolay", sure: "15 Dakika", ikon: "fa-door-closed", gerekliAraclar: ["Yok"], adımlar: [
-                "Buzdolabının kapısını açın ve eski contanın köşe kısmından tutarak yuvadan dışarı çekin.",
-                "Conta kanalında biriken kir ve küfleri sabunlu bezle temizleyin.",
-                "Yeni esnek kapı contasının köşelerinden başlayarak kanala bastırarak oturtun.",
-                "Contanın tamamının yuvaya tam olarak geçtiğini kontrol edin.",
-                "Kapıyı kapatıp mıknatısın kasaya tam yapışıp yapışmadığını test edin."
-            ]},
-            { id: 56, baslik: "Ekmek Kızartma Makinesi Yayı", kategori: "Ev Aletleri", zorluk: "Orta", sure: "20 Dakika", ikon: "fa-bread-slice", gerekliAraclar: ["Pense"], adımlar: [
-                "Ekmek kızartma makinesinin dış sacını alt vidaları sökerek çıkarın.",
-                "Ekmek sepetini aşağıda tutan mekanik kilit ve yay grubunu inceleyin.",
-                "Yerinden çıkmış veya esnemiş olan germe yayını pense ile yerine takın.",
-                "Kilit mandalının serbest bırakma tetiğini test edin.",
-                "Makineyi toplayıp ekmek yuvasının aşağıda kilitlenip kilitlenmediğini kontrol edin."
-            ]},
-            { id: 57, baslik: "Dijital Mutfak Tartısı Sensörü", kategori: "Ev Aletleri", zorluk: "Kolay", sure: "10 Dakika", ikon: "fa-scale-unbalanced", gerekliAraclar: ["Tornavida"], adımlar: [
-                "Tartının alt kapağını açıp pil yuvası kontaklarını kontrol edin.",
-                "Pil yuvasındaki oksitlenmeyi sirke veya zımpara ile temizleyin.",
-                "Ağırlık sensörüne giden ince kabloların lehimlerini gözden geçirin.",
-                "Kapağı kapatıp üzerine ağırlık koyarak ekranın doğru tartıp tartmadığını test edin."
-            ]},
-            { id: 58, baslik: "Saç Kesme Makinesi Bataryası", kategori: "Ev Aletleri", zorluk: "Orta", sure: "25 Dakika", ikon: "fa-scissors", gerekliAraclar: ["Havya"], adımlar: [
-                "Makinenin dış gövde vidalarını sökerek iç bataryaya ulaşın.",
-                "Şarj tutmayan eski pilin anakart üzerindeki lehimlerini havya ile eritin.",
-                "Özdeş voltajdaki yeni şarjlı pili aynı kutup yönünde karta lehimleyin.",
-                "Pili yuvaya sabitleyip gövdeyi birleştirin.",
-                "Makineyi şarj cihazına takarak dolum ışığını kontrol edin."
-            ]},
-            { id: 59, baslik: "Aspiratör Yağ Filtresi", kategori: "Ev Aletleri", zorluk: "Kolay", sure: "10 Dakika", ikon: "fa-air-freshener", gerekliAraclar: ["Deterjan"], adımlar: [
-                "Aspiratör altındaki alüminyum filtrelerin mandalına basarak aşağı indirin.",
-                "Filtreleri sıcak su ve yoğun yağ çözücü deterjan dolu bir kapta 15 dakika bekletin.",
-                "Yumuşayan yağları fırça yardımıyla tel gözeneklerden tamamen arındırın.",
-                "Filtreleri durulayıp tamamen kurumasını sağlayın.",
-                "Mandalına basarak filtreleri tekrar yuvalarına takın."
-            ]},
-            { id: 60, baslik: "Şofben Akış Sensörü", kategori: "Ev Aletleri", zorluk: "İleri", sure: "30 Dakika", ikon: "fa-hot-tub", gerekliAraclar: ["Anahtar"], adımlar: [
-                "Şofbenin su giriş vanasını kapatıp elektrik sigortasını indirin.",
-                "Su akış türbin sensörünün somunlarını anahtar takımı ile sökün.",
-                "Su kireci nedeniyle dönmeyen pervane türbinini sirkeyle temizleyin.",
-                "Sensörün elektronik kablo soketini kontrol edip yerine takın.",
-                "Su vanasını açıp kaçak olmadığını kontrol ettikten sonra elektrik verip test edin."
-            ]},
-
-            // El Aletleri ve Makineler (MAK-401 / MAK-420)
-            { id: 61, baslik: "Şarjlı Matkap Tetik Anahtarı", kategori: "Makine", zorluk: "Orta", sure: "25 Dakika", ikon: "fa-screwdriver", gerekliAraclar: ["Tornavida"], adımlar: [
-                "Matkabın plastik gövde vidalarını sökerek yarım kabukları birbirinden ayırın.",
-                "Hız ayarlı arızalı tetik anahtarının kablo bağlantılarını şemaya göre not edin.",
-                "Batarya ve motordan gelen kabloları tetik modülünden sökün.",
-                "Yeni tetik anahtarını aynı bağlantı noktalarına takıp sabitleyin.",
-                "Gövdeyi kapatırken kabloların sıkışmamasına dikkat edin.",
-                "Tetiğe basarak motor hızını test edin."
-            ]},
-            { id: 62, baslik: "Darbeli Matkap Kömür Yatağı", kategori: "Makine", zorluk: "Orta", sure: "20 Dakika", ikon: "fa-hammer", gerekliAraclar: ["Pense"], adımlar: [
-                "Matkabın arka motor kapağını sökerek kömür yuvalarına erişin.",
-                "Aşınmış kömürleri yaylı baskı tırnağını kaldırarak yuvalarından çıkarın.",
-                "Kolektör yüzeyini hafifçe zımparalayıp temizleyin.",
-                "Yeni kömürleri yataklara yerleştirip yay baskılarını takın.",
-                "Kömür kablo terminallerini yerlerine sabitleyip kapağı kapatın.",
-                "Matkaba enerji verip kıvılcım kontrolü yapın."
-            ]},
-            { id: 63, baslik: "Avuç Taşlama Dişli Kutusu", kategori: "Makine", zorluk: "İleri", sure: "35 Dakika", ikon: "fa-gear", gerekliAraclar: ["Gres Yağı"], adımlar: [
-                "Taşlama makinesinin ön kafa dişli kutusu vidalarını sökün.",
-                "Kutunun içindeki eski, kurumuş gres kalıntılarını balata spreyiyle temizleyin.",
-                "Konik mahruti dişlilerde aşınma olup olmadığını kontrol edin.",
-                "Kutunun içine özel yüksek ısı dayanımlı taşlama gresi doldurun.",
-                "Kapağı kapatıp vidaları sıkın ve makineyi boştta çalıştırarak sesi dinleyin."
-            ]},
-            { id: 64, baslik: "Dekupaj Testere Bıçak Tutucu", kategori: "Makine", zorluk: "Orta", sure: "15 Dakika", ikon: "fa-toolbox", gerekliAraclar: ["Alyan"], adımlar: [
-                "Testere ön koruma muhafazasını yukarı kaldırın.",
-                "Bıçağı sıkan kırık veya yalama olmuş alyan vidasını sökün.",
-                "Bıçak tutucu çeneyi yuvasından çıkarıp talaşlardan arındırın.",
-                "Yeni sıkıştırma vidasını ve çeneyi yerine takın.",
-                "Test bıçağı takıp vidanın sıkıca kavradığını kontrol edin."
-            ]},
-            { id: 65, baslik: "Lehim Makinesi Havya Ucu", kategori: "Makine", zorluk: "Kolay", sure: "5 Dakika", ikon: "fa-pen-nib", gerekliAraclar: ["Pense"], adımlar: [
-                "Havya tamamen soğuduktan sonra ucunu sabitleyen somunu veya vidayı gevşetin.",
-                "Yanmış ve kararmış eski havya ucunu pense ile düz bir şekilde çekip çıkarın.",
-                "Rezistans tüpü içindeki kalıntıları temizleyin.",
-                "Yeni havya ucunu rezistans içine tam oturacak şekilde takın.",
-                "Sabitleme somununu sıkıp havyayı ısıtarak kalaylayın."
-            ]},
-            { id: 66, baslik: "Isı Tabancası Sıcaklık Kartı", kategori: "Makine", zorluk: "İleri", sure: "30 Dakika", ikon: "fa-fire", gerekliAraclar: ["Havya"], adımlar: [
-                "Isı tabancasının gövde vidalarını sökerek ısıtma rezistansı ve kart grubunu çıkarın.",
-                "Potansiyometre veya triyak üzerindeki lehim çatlaklarını havya ile tazeleyin.",
-                "Kopan direnç bağlantısı varsa onarın.",
-                "Kartı yalıtkan yuvaya güvenli bir şekilde yerleştirin.",
-                "Tabancayı çalıştırıp kademeli sıcaklık değişimini test edin."
-            ]},
-            { id: 67, baslik: "Akülü Vidalama Şanzımanı", kategori: "Makine", zorluk: "İleri", sure: "40 Dakika", ikon: "fa-screwdriver-wrench", gerekliAraclar: ["Gres"], adımlar: [
-                "Vidalama aletinin ön mandren ve gövde kısımlarını sökerek şanzımanı çıkarın.",
-                "Sıyrılmış planet dişlileri ve taşıyıcı plakayı inceleyin.",
-                "Hasarlı dişli setini yenisiyle değiştirip bolca gresleyin.",
-                "Şanzıman kademe halkasını doğru konumda gövdeye oturtun.",
-                "Gövdeyi birleştirip tork ayarlarını kademeli olarak test edin."
-            ]},
-            { id: 68, baslik: "Çim Biçme Makinesi Gaz Teli", kategori: "Makine", zorluk: "Orta", sure: "25 Dakika", ikon: "fa-seedling", gerekliAraclar: ["Pense"], adımlar: [
-                "Gaz kolu ile motor karbüratörü arasındaki korumalı teli inceleyin.",
-                "Kopan veya sıkışan teli bağlantı somunlarından sökerek çıkarın.",
-                "Yeni gaz telini kılavuz borunun içerisinden geçirin.",
-                "Telin bir ucunu gidon koluna, diğer ucunu karbüratör kelebeğine sabitleyin.",
-                "Gaz kolunu hareket ettirerek kelebeğin tam açılıp kapandığını test edin."
-            ]},
-            { id: 69, baslik: "Benzinli Testere Karbüratörü", kategori: "Makine", zorluk: "İleri", sure: "45 Dakika", ikon: "fa-gas-pump", gerekliAraclar: ["Balata Spreyi"], adımlar: [
-                "Testerenin hava filtresini ve üst kapağını sökerek karbüratöre ulaşın.",
-                "Yakıt hortumlarını ve gaz telini karbüratörden ayırıp dışarı çıkarın.",
-                "Karbüratör diyafram contalarını ve iğne valfini söküp balata spreyiyle temizleyin.",
-                "Tıkanık jet memelerini hava ile açıp yeni conta setiyle toplayın.",
-                "Motoru çalıştırıp rölanti ve gaz geçiş ayarlarını yapın."
-            ]},
-            { id: 70, baslik: "Kompresör Presostatı", kategori: "Makine", zorluk: "İleri", sure: "30 Dakika", ikon: "fa-gauge-high", gerekliAraclar: ["Tornavida"], adımlar: [
-                "Kompresörün elektrik enerjisini kesin ve havacı tankı tamamen boşaltın.",
-                "Basınç şalterinin (presostat) plastik koruma kapağını sökün.",
-                "Kablo terminallerini işaretleyip sökün ve ana gövde bağlantı rakorunu gevşetin.",
-                "Arızalı şalteri söküp yeni presostatı sızdırmazlık bandı (teflon) sararak takın.",
-                "Kablolama yapıp tankı doldurarak otomatik durma basıncını test edin."
-            ]},
-            { id: 71, baslik: "Hidrolik Kriko Valfi", kategori: "Makine", zorluk: "Orta", sure: "20 Dakika", ikon: "fa-car", gerekliAraclar: ["Anahtar"], adımlar: [
-                "Krikonun hidrolik yağ tapasını sökerek eski yağı tahliye edin.",
-                "Aşağı indirme tahliye valf milini söküp üzerindeki O-ring keçeyi kontrol edin.",
-                "Kaçak yapan aşınmış keçeyi yenisiyle değiştirin.",
-                "Krikoya taze hidrolik yağı ekleyerek hava yapmasını önleyin.",
-                "Valfi kapatıp krikoyu yükselterek yük taşıma kapasitesini test edin."
-            ]},
-            { id: 72, baslik: "Mengene Mili Dişlisi", kategori: "Makine", zorluk: "Orta", sure: "25 Dakika", ikon: "fa-wrench", gerekliAraclar: ["Yağdanlık"], adımlar: [
-                "Mengene kolunu sonuna kadar çevirerek hareketli çeneyi tamamen sökün.",
-                "Ana mil vidasını ve somun gövdesini kontrol edin.",
-                "Dişliler üzerine biriken talaş ve pası tel fırça ile temizleyin.",
-                "Mili gres yağı veya kalın makine yağı ile yağlayın.",
-                "Çeneyi yerine takıp ileri geri rahat hareket edip etmediğini test edin."
-            ]},
-            { id: 73, baslik: "Şerit Metre Yay Mekanizması", kategori: "Makine", zorluk: "İleri", sure: "30 Dakika", ikon: "fa-ruler", gerekliAraclar: ["Eldiven"], adımlar: [
-                "Şerit metrenin dış kasa vidalarını dikkatle sökün (Yay fırlama tehlikesi vardır).",
-                "Yuvasından çıkan veya kırılan çelik sarma yayını kontrol edin.",
-                "Yay çeliğini makara merkezine sabitleyip dikkatlice kurulayın.",
-                "Şerit metreyi yaya bağlayıp kasaya düzgünce sarın.",
-                "Metreyi çekip otomatik geri sarma fonksiyonunu test edin."
-            ]},
-            { id: 74, baslik: "Dalgıç Pompa Salmastrası", kategori: "Makine", zorluk: "Uzman", sure: "50 Dakika", ikon: "fa-water", gerekliAraclar: ["Contalama Seti"], adımlar: [
-                "Dalgıç pompanın gövde bağlantı somunlarını sökerek motor ile hidrolik kısmı ayırın.",
-                "Su sızdırmasına sebep olan seramik mekanik salmastrayı mil üzerinden çıkarın.",
-                "Mil yatağını temizleyip yeni salmastra setini özel aparatla bastırarak takın.",
-                "O-ring contaları yenileyip motor gövdesini cıvatalarla sıkın.",
-                "Pompayı suya daldırıp sızdırmazlık ve basınç testi yapın."
-            ]},
-            { id: 75, baslik: "Pnömatik Tabanca Tetik Valfi", kategori: "Makine", zorluk: "İleri", sure: "30 Dakika", ikon: "fa-gun", gerekliAraclar: ["Alyan"], adımlar: [
-                "Hava hortumunu tabancadan sökün.",
-                "Tetik pimini ve üst kapak alyan vidalarını sökerek valf grubunu çıkarın.",
-                "Valf mili üzerindeki küçük kauçuk O-ring keçelerde kaçak olup olmadığını inceleyin.",
-                "Aşınmış O-ringleri yenileriyle değiştirip hafifçe pnömatik yağ sürün.",
-                "Valfi toplayıp hava vererek tetik kaçaklarını kontrol edin."
-            ]},
-            { id: 76, baslik: "Somun Sıkma Anvilsi", kategori: "Makine", zorluk: "Uzman", sure: "40 Dakika", ikon: "fa-hammer", gerekliAraclar: ["Pense"], adımlar: [
-                "Somun sıkma (bijon anahtarı) ön burun contasını ve sabitleme segmanını çıkarın.",
-                "Darbe örs milini (anvil) ve çekiç mekanizmasını yuvadan dışarı çekin.",
-                "Aşınmış veya kırık örs milini yenisiyle değiştirin.",
-                "Darbe mekanizmasına özel darbe gresi ekleyip segmanı yerine takın.",
-                "Cihazı çalıştırıp darbe vurma performansını test edin."
-            ]},
-            { id: 77, baslik: "Akım Korumalı Priz Anahtarı", kategori: "Makine", zorluk: "Kolay", sure: "10 Dakika", ikon: "fa-shield", gerekliAraclar: ["Tornavida"], adımlar: [
-                "Prizin arka kapak vidalarını sökerek iç bara ve anahtar grubuna ulaşın.",
-                "Işıklı açma/kapama anahtarının kablo terminallerini kontrol edin.",
-                "Arızalı anahtarı tırnaklarından kurtararak yuvadan çıkarın.",
-                "Yeni ışıklı anahtarı yerine takıp kablolarını lehimleyin veya sıkıştırın.",
-                "Kapağı kapatıp prizi test edin."
-            ]},
-            { id: 78, baslik: "Kaynak Makinesi İnverter Kartı", kategori: "Makine", zorluk: "Uzman", sure: "60 Dakika", ikon: "fa-bolt-lightning", gerekliAraclar: ["Multimetre"], adımlar: [
-                "Kaynak makinesinin fişini çekip üzerindeki büyük kapasitörlerin deşarj olmasını bekleyin.",
-                "Dış sacı söküp inverter güç kartı üzerindeki IGBT transistörleri multimetre ile test edin.",
-                "Patlamış veya kısa devre yapmış transistörleri karttan sökün.",
-                "Özdeş yeni IGBT'leri termal macun sürerek soğutucu bloğa monte edip lehimleyin.",
-                "Makineyi test lambası üzerinden çalıştırıp ark performansını kontrol edin."
-            ]},
-            { id: 79, baslik: "Zımpara Makinesi Taban Pedi", kategori: "Makine", zorluk: "Kolay", sure: "10 Dakika", ikon: "fa-circle", gerekliAraclar: ["Alyan"], adımlar: [
-                "Zımpara tabanını tutan merkezdeki uzun bağlantı vidalarını alyan ile sökün.",
-                "Aşınmış veya cırt cırtı erimiş taban pedini motordan ayırın.",
-                "Yeni taban pedini mil üzerindeki kılavuz pimine denk getirerek yerleştirin.",
-                "Merkez vidasını sıkarak pedi sabitleyin.",
-                "Üzerine zımpara kağıdı takarak titreşim testini yapın."
-            ]},
-            { id: 80, baslik: "Tezgah Testere Kayışı", kategori: "Makine", zorluk: "Orta", sure: "20 Dakika", ikon: "fa-circle-notch", gerekliAraclar: ["Tornavida"], adımlar: [
-                "Tezgah testerenin motor koruma kapaklarını sökerek kayış kasnak sistemine erişin.",
-                "Motoru hafifçe kız kızak yönünde gevşeterek kayıştaki tansiyonu düşürün.",
-                "Kopmuş veya çatlamış V kayışını kasnaklardan çıkarın.",
-                "Aynı ölçüdeki yeni kayışı motor ve testere kasnağına geçirin.",
-                "Motoru gerdirerek kayış tansiyonunu ayarlayın ve vidaları sıkın."
-            ]},
-
-            // Mekanik ve Hassas Donanım (MEK-501 / MEK-520)
-            { id: 81, baslik: "Mekanik Saat Zembereği", kategori: "Mekanik", zorluk: "Uzman", sure: "60 Dakika", ikon: "fa-clock", gerekliAraclar: ["Cımbız", "Büyüteç"], adımlar: [
-                "Saatin arka kapağını ve kurma mekanizmasını hassas tornavidalarla sökün.",
-                "Saat çarklarını sırasıyla çıkarıp tulumba çarkı içindeki zemberek yayına ulaşın.",
-                "Kırılmış olan ana yay telini cımbızla dikkatlice dışarı alın.",
-                "Yeni zemberek yayını tulumba içerisine kurma yönüne dikkat ederek yerleştirin.",
-                "Çarkları tekrar yağlayarak sırasıyla monte edin.",
-                "Saati kurup çalışmasını gözlemleyin."
-            ]},
-            { id: 82, baslik: "Bisiklet Vites Teli", kategori: "Mekanik", zorluk: "Kolay", sure: "15 Dakika", ikon: "fa-bicycle", gerekliAraclar: ["Pense"], adımlar: [
-                "Vites kolunu en yüksek vites kademesine getirin.",
-                "Aktarıcı üzerindeki tel sabitleme somununu gevşetip eski teli çekerek çıkarın.",
-                "Yeni vites telini vites kolu yuvasından geçirip dış kablonun içine sürün.",
-                "Teli aktarıcı mekanizmasına gergin bir şekilde tutturup somunu sıkın.",
-                "Vites geçişlerini pedal çevirerek test edin ve gergi ayar somunuyla ince ayar yapın."
-            ]},
-            { id: 83, baslik: "Kapı Hidroliği Ayar Valfi", kategori: "Mekanik", zorluk: "Kolay", sure: "10 Dakika", ikon: "fa-door-open", gerekliAraclar: ["Alyan"], adımlar: [
-                "Kapı hidroliğinin (yayının) üzerindeki koruma kapağını çıkarın.",
-                "Üzerinde '1' ve '2' yazan hız ayar vidalarını alyan anahtarla tespit edin.",
-                "Kapının kapanma hızını artırmak veya yavaşlatmak için vidaları çeyrek tur çevirerek ayarlayın.",
-                "Kapıyı açıp kendi kendine yavaşça ve tam kapanıp kapanmadığını test edin.",
-                "Koruma kapağını yerine takın."
-            ]},
-            { id: 84, baslik: "Teleskopik Merdiven Kilidi", kategori: "Mekanik", zorluk: "Orta", sure: "20 Dakika", ikon: "fa-stairs", gerekliAraclar: ["Tornavida"], adımlar: [
-                "Merdivenin basamak kilit pimlerinin bulunduğu plastik muhafazayı sökün.",
-                "Sıkışan veya yayı kırılan emniyet pimini mekanizmadan çıkarın.",
-                "Yeni yayı ve çelik pimi yerine takıp hareket serbestliğini kontrol edin.",
-                "Muhafazayı vidalayıp basamakların otomatik kilitlenip kilitlenmediğini test edin."
-            ]},
-            { id: 85, baslik: "Ofis Koltuğu Amortisörü", kategori: "Mekanik", zorluk: "Orta", sure: "20 Dakika", ikon: "fa-chair", gerekliAraclar: ["Çekiç"], adımlar: [
-                "Koltuk oturma mekanizmasını yıldız anahtarla sökerek tekerlekli tabandan ayırın.",
-                "Gaz kaçıran amortisör pistonunu bağlı olduğu ayak merkezinden çekiç darbesiyle çıkarın.",
-                "Yeni amortisör pistonunu ayak merkezine ve koltuk mekanizmasına oturtun.",
-                "Koltuk üzerine oturarak amortisörün yükseklik ayarını test edin."
-            ]},
-            { id: 86, baslik: "Çekmece Rayı Bilyaları", kategori: "Mekanik", zorlyk: "Kolay", sure: "15 Dakika", ikon: "fa-box", gerekliAraclar: ["Gres"], adımlar: [
-                "Çekmeceyi tamamen açıp kenardaki plastik mandallara basarak raydan çıkarın.",
-                "Ray profili içerisindeki kayıp bilyaları ve bilya kafesini kontrol edin.",
-                "Düşen çelik bilyaları yuvalarına dizip ray kanalını gres yağı ile yağlayın.",
-                "Çekmeceyi raylara tekrar sürerek akıcı çalışıp çalışmadığını test edin."
-            ]},
-            { id: 87, baslik: "Şifreli Kasa Kombinasyonu", kategori: "Mekanik", zorluk: "Uzman", sure: "50 Dakika", ikon: "fa-lock", gerekliAraclar: ["Özel Anahtar"], adımlar: [
-                "Kasanın iç kapak koruma sacını sökerek mekanik kombinasyon disklerine ulaşın.",
-                "Şifre değiştirme anahtarını veya mandalını arka yuvaya takın.",
-                "Yeni şifre kombinasyonunu diskleri çevirerek ayarlayın.",
-                "Anahtarı eski konumuna getirip kasayı açık konumda birkaç kez test edin.",
-                "Kapağı kapatıp yeni şifreyle kilitleme testi yapın."
-            ]},
-            { id: 88, baslik: "Kamp Ocağı Gaz Valfi", kategori: "Mekanik", zorluk: "İleri", sure: "25 Dakika", ikon: "fa-fire-burner", gerekliAraclar: ["Anahtar"], adımlar: [
-                "Kamp ocağının tüp bağlantı gövdesini sökerek gaz valf musluğuna erişin.",
-                "Valf milindeki O-ring keçeleri kontrol edip aşınmışsa yenileriyle değiştirin.",
-                "Dişli kısımlara gaz sızdırmazlık macunu sürün.",
-                "Musluğu monte edip tüp bağlayarak köpük testi (gaz kaçağı kontrolü) yapın."
-            ]},
-            { id: 89, baslik: "Çadır Pole Lastiği", kategori: "Mekanik", zorluk: "Kolay", sure: "15 Dakika", ikon: "fa-campground", gerekliAraclar: ["Makas"], adımlar: [
-                "Çadır pol (destek çubuğu) parçalarını birbirinden ayırıp içindeki eski kopuk lastiği çıkarın.",
-                "Yeni esnek şok lastiğini çadır borularının içerisinden uçtan uca geçirin.",
-                "Lastiğin uçlarını gerdirerek uç borulara düğüm atıp sabitleyin.",
-                "Pollerin katlanıp lastik gerginliğiyle tekrar toplanmasını test edin."
-            ]},
-            { id: 90, baslik: "Sırt Çantası Fermuar Sürgüsü", kategori: "Mekanik", zorluk: "Kolay", sure: "5 Dakika", ikon: "fa-bag-shopping", gerekliAraclar: ["Pense"], adımlar: [
-                "Dişleri tutmayan fermuar sürgüsünün her iki yan kenarını pense ile hafifçe sıkıştırın.",
-                "Sürgünün ray dişlerini tam kavradığından emin olun.",
-                "Fermuarı açıp kapatarak diş atlayıp atlamadığını kontrol edin.",
-                "Çok aşınmış sürgüleri yenisiyle değiştirin."
-            ]},
-            { id: 91, baslik: "Teleskop Odaklama Dişlisi", kategori: "Mekanik", zorluk: "Orta", sure: "20 Dakika", ikon: "fa-binoculars", gerekliAraclar: ["Alyan"], adımlar: [
-                "Teleskop odaklama (focuser) mekanizmasının yan küçük vidalarını gevşetin.",
-                "Boşluk yapan kremayer dişli milini söküp dişleri temizleyin.",
-                "Ayar vidalarını sıkarak dişliler arasındaki boşluğu (lüftü) sıfırlayın.",
-                "Netlik tekerleğini çevirerek optik tüpün rahat hareket ettiğini test edin."
-            ]},
-            { id: 92, baslik: "Gözlük Çerçeve Menteşesi", kategori: "Mekanik", zorluk: "Kolay", sure: "5 Dakika", ikon: "fa-glasses", "gerekliAraclar": ["Mini Tornavida"], adımlar: [
-                "Gözlüğün sapı ile çerçeve birleşimindeki menteşe deliklerini üst üste getirin.",
-                "Düşmüş olan mikro vidayı cımbızla deliğe yerleştirin.",
-                "Saatçi tornavidası ile vidayı saat yönünde çevirerek sıkın.",
-                "Gözlük sapının rahat açılıp kapanmasını test edin."
-            ]},
-            { id: 93, baslik: "Kol Saati Kronograf Düğmesi", kategori: "Mekanik", zorluk: "Orta", sure: "20 Dakika", ikon: "fa-stopwatch", gerekliAraclar: ["Cımbız"], adımlar: [
-                "Saatin arka kapağını söküp mekanizmayı dışarı çıkarın.",
-                "Yerinden düşen kronograf milini ve küçük yayını cımbızla yuvasına yerleştirin.",
-                "Düğme pistonunun pimini sabitleyip mekanizmayı kasaya oturtun.",
-                "Kronograf butonuna basarak kronograf ibresinin hareketini test edin."
-            ]},
-            { id: 94, baslik: "Akustik Gitar Burgu Dişlisi", kategori: "Mekanik", zorluk: "Kolay", sure: "15 Dakika", ikon: "fa-guitar", gerekliAraclar: ["Tornavida"], adımlar: [
-                "Gitar başlığındaki akort burgusunu sabitleyen küçük orta vidayı sıkın.",
-                "Sıyran veya boşluk yapan sonsuz vida dişlisini kontrol edin.",
-                "Dişliye hafif bir damla makine yağı damlatarak sürtünmeyi azaltın.",
-                "Teli takıp akort yaparak burgunun kaçırma yapmadığını test edin."
-            ]},
-            { id: 95, baslik: "Sürgülü Pencere Kilidi", kategori: "Mekanik", zorluk: "Kolay", sure: "10 Dakika", ikon: "fa-window-maximize", gerekliAraclar: ["Tornavida"], adımlar: [
-                "Pencere ispanyolet veya kilit kolunu sabitleyen vida kapaklarını açın.",
-                "Vidaları söküp eski arızalı mandal mekanizmasını yuvadan çıkarın.",
-                "Yeni pencere kilit mekanizmasını yerine vidalayın.",
-                "Pencereyi kapatıp kolu çevirerek tam kilitlenme sağlandığını test edin."
-            ]},
-            { id: 96, baslik: "Bahçe Hortumu Rakor Bağlantısı", kategori: "Mekanik", zorluk: "Kolay", sure: "5 Dakika", ikon: "fa-shower", "gerekliAraclar": ["Yok"], adımlar: [
-                "Hortum ucundaki sızdıran plastik veya pirinç rakor somununu sökün.",
-                "İçerisinde ezilmiş olan kauçuk contayı tornavida ile çıkarın.",
-                "Aynı ölçüde yeni sızdırmazlık contasını rakor içine yerleştirin.",
-                "Musluğa bağlayıp su akıtarak kaçak olup olmadığını test edin."
-            ]},
-            { id: 97, baslik: "Valiz Çekçek Kolu Mekanizması", kategori: "Mekanik", zorluk: "Orta", sure: "20 Dakika", ikon: "fa-suitcase", gerekliAraclar: ["Tornavida"], adımlar: [
-                "Valizin iç astar fermuarını açarak teleskopik çekçek kolunun alt vidalarına ulaşın.",
-                "Kolu sabitleyen somunları söküp valizden ayırın.",
-                "Teleskopik borular arasına sıkışan pimleri düzeltip hafifçe yağlayın.",
-                "Kolu valize geri vidalayıp açılıp kapanma fonksiyonunu test edin."
-            ]},
-            { id: 98, baslik: "Kamp Sandalyesi Mafsalı", kategori: "Mekanik", zorluk: "Kolay", sure: "10 Dakika", ikon: "fa-chair", gerekliAraclar: ["Pense"], adımlar: [
-                "Kamp sandalyesinin kırılan perçin bağlantı noktasını kontrol edin.",
-                "Kalan perçin artığını matkap veya pense ile delikten çıkarın.",
-                "Delik çapına uygun somunlu bir vida ve pul kullanarak mafsalı birleştirin.",
-                "Sandalyeyi açıp katlayarak mafsalın rahat çalışıp çalışmadığını test edin."
-            ]},
-            { id: 99, baslik: "Stor Perde Mekanizma Zinciri", kategori: "Mekanik", zorluk: "Kolay", sure: "5 Dakika", ikon: "fa-blinds", gerekliAraclar: ["Makas"], adımlar: [
-                "Kopan boncuklu stor zincirinin uçlarını bir araya getirin.",
-                "Plastik birleştirme klipsini zincirin son boncuklarına klipsleyin.",
-                "Zinciri mekanizma dişli tamburuna geçirerek test edin.",
-                "Perdenin yukarı aşağı sorunsuz sarıldığını kontrol edin."
-            ]},
-            { id: 100, baslik: "Mekanik Kapı Kilidi (Gömme)", kategori: "Mekanik", zorluk: "Orta", sure: "25 Dakika", ikon: "fa-key", "gerekliAraclar": ["Tornavida"], adımlar: [
-                "Kapı kolunu ve rozet aynalarını sökerek kilit gövdesini tutan yan vidaları çıkarın.",
-                "Gömme kilit mekanizmasını kapı yan kenarından dışarı çekin.",
-                "Kilit kutusunu açıp içindeki dilli yay mekanizmasını ve kırık parçaları kontrol edin.",
-                "Yayı yerine takıp mekanizmayı gres yağı ile yağlayın ve kutuyu kapatın.",
-                "Kilidi kapıya monte edip anahtar ve kol ile çalışmasını test edin."
-            ]}
-        ];
+    // --- 101 - 200 ARASI REHBERLER ---
+    {
+        id: 101,
+        baslik: "Akıllı Telefon Şok Batarya Değişimi",
+        kategori: "Telefon",
+        zorluk: "Orta",
+        sure: "30 Dakika",
+        aciklama: "Ömrü biten veya hızlı biten telefon bataryanızı evde güvenle değiştirin.",
+        malzemeler: ["1 Adet Uyumlu Batarya", "Vantuz ve Plastik Spudger", "Tornavida Seti", "Isı Tabancası"],
+        adimlar: ["Telefonu kapatın.", "Kenarları ısıtıp ekranı vantuzla kaldırın.", "Batarya soketini sökün.", "Eski bataryayı çıkarıp yenisini takın."]
+    },
+    {
+        id: 102,
+        baslik: "Dizüstü Bilgisayar Fan Temizliği ve Termal Macun",
+        kategori: "Elektronik",
+        zorluk: "Orta",
+        sure: "60 Dakika",
+        aciklama: "Aşırı ısınan ve ses yapan laptopların bakımını yapın.",
+        malzemeler: ["Termal Macun", "Yıldız Tornavida", "Basınçlı Hava"],
+        adimlar: ["Alt kasanın vidalarını sökün.", "Fanı söküp tozunu alın.", "Eski macunu temizleyip yenisini sürün."]
+    },
+    {
+        id: 103,
+        baslik: "Mekanik Klavye Switch Değişimi",
+        kategori: "Elektronik",
+        zorluk: "Orta",
+        sure: "40 Dakika",
+        aciklama: "Basmayan mekanik tuşların anahtarlarını yenileyin.",
+        malzemeler: ["Keycap Sökücü", "Switch Puller", "Yedek Switch"],
+        adimlar: ["Tuş başlığını çıkarın.", "Eski switch'i çekip çıkarın.", "Yeni switch'i yuvaya bastırın."]
+    },
+    {
+        id: 104,
+        baslik: "Çay Makinesi Kireç Temizliği",
+        kategori: "Ev Aletleri",
+        zorluk: "Kolay",
+        sure: "25 Dakika",
+        aciklama: "Isınmayan veya kireçlenen çaycıları arındırın.",
+        malzemeler: ["Limon Tuzu", "Su"],
+        adimlar: ["Hazneye su ve limon tuzu ekleyin.", "Kaynatıp 15 dk bekletin.", "Bol suyla durulayın."]
+    },
+    {
+        id: 105,
+        baslik: "Duş Bataryası Kartuş Değişimi",
+        kategori: "Tesisat",
+        zorluk: "Orta",
+        sure: "30 Dakika",
+        aciklama: "Su sızdıran musluk iç takımını yenileyin.",
+        malzemeler: ["Kurbağacık", "Yedek Kartuş"],
+        adimlar: ["Ana suyu kapatın.", "Musluk kolunu sökün.", "Eski kartuşu çıkarıp yenisini takın."]
+    },
+    {
+        id: 106,
+        baslik: "Kablosuz Kulaklık Şarj Kutusu Onarımı",
+        kategori: "Elektronik",
+        zorluk: "İleri",
+        sure: "45 Dakika",
+        aciklama: "Şarj almayan kulaklık kutusu pinlerini temizleyin.",
+        malzemeler: ["İzopropil Alkol", "Kulak Çöpü", "İnce Cımbız"],
+        adimlar: ["Kutuyu açın.", "Pinlerdeki oksitlenmeyi alkolle temizleyin.", "Test edip kapatın."]
+    },
+    {
+        id: 107,
+        baslik: "Türk Kahvesi Makinesi Sensör Temizliği",
+        kategori: "Ev Aletleri",
+        zorluk: "Kolay",
+        sure: "15 Dakika",
+        aciklama: "Taşma algılamayan cezve sensörünü temizleyin.",
+        malzemeler: ["Nemli Mikrofiber Bez", "Sirke"],
+        adimlar: ["Cihazı fişten çekin.", "Pişirme yuvasındaki gözü silin.", "Kuru bezle kurulayın."]
+    },
+    {
+        id: 108,
+        baslik: "Ütü Tabanı Kireç ve Leke Temizliği",
+        kategori: "Ev Aletleri",
+        zorluk: "Kolay",
+        sure: "20 Dakika",
+        aciklama: "Kıyafetleri yakan kirli ütü tabanını parlatın.",
+        malzemeler: ["Karbonat", "Sirke", "Sünger"],
+        adimlar: ["Karbonat ve sirkeyi macun yapın.", "Tabana sürün.", "Nemli bezle silin."]
+    },
+    {
+        id: 109,
+        baslik: "Saç Kurutma Makinesi Kablo Temassızlığı",
+        kategori: "Ev Aletleri",
+        zorluk: "Orta",
+        sure: "30 Dakika",
+        aciklama: "Temassızlık yapan kabloyu onarın.",
+        malzemeler: ["Kargaburun", "Elektrik Bandı", "Makas"],
+        adimlar: ["Kapağı açın.", "Kırık kablo ucunu kesin.", "Tekrar lehimleyip yalıtın."]
+    },
+    {
+        id: 110,
+        baslik: "Blender Dişlisi Sıkışması Giderme",
+        kategori: "Ev Aletleri",
+        zorluk: "Orta",
+        sure: "35 Dakika",
+        aciklama: "Dönmeyen blender bıçak yatağını sökün.",
+        malzemeler: ["Tornavida", "Makine Yağı"],
+        adimlar: ["Alt vidayı sökün.", "Dişliyi kontrol edin.", "Temizleyip yağlayın."]
+    },
+    {
+        id: 111,
+        baslik: "Elektrikli Süpürge Hortum Tamiri",
+        kategori: "Ev Aletleri",
+        zorluk: "Kolay",
+        sure: "10 Dakika",
+        aciklama: "Delinen süpürge hortumunu hava kaçırmayacak şekilde sarın.",
+        malzemeler: ["Armor Bant / Elektrik Bandı"],
+        adimlar: ["Yırtık bölgeyi temizleyin.", "Bantla sıkıca sarın."]
+    },
+    {
+        id: 112,
+        baslik: "Lavabo Sifon Contası Yenileme",
+        kategori: "Tesisat",
+        zorluk: "Kolay",
+        sure: "25 Dakika",
+        aciklama: "Su akutan evye altı borularını onarın.",
+        malzemeler: ["Yeni Conta", "Kova"],
+        adimlar: ["Sifonu sökün.", "Eski contayı çıkarın.", "Yenisini takıp sıkın."]
+    },
+    {
+        id: 113,
+        baslik: "Mutfak Evyesi Tıkanıklığı Açma",
+        kategori: "Tesisat",
+        zorluk: "Kolay",
+        sure: "20 Dakika",
+        aciklama: "Su gitmeyen lavaboları açın.",
+        malzemeler: ["Lavabo Pompası", "Kaynar Su"],
+        adimlar: ["Sıcak su dökün.", "Pompalama yapın.", "Atıkları temizleyin."]
+    },
+    {
+        id: 114,
+        baslik: "Duş Başlığı Kireç Çözme",
+        kategori: "Tesisat",
+        zorluk: "Kolay",
+        sure: "15 Dakika",
+        aciklama: "Tıkalı duş deliklerini açın.",
+        malzemeler: ["Poşet", "Sirke", "Lastik İp"],
+        adimlar: ["Poşete sirke doldurun.", "Duş başlığına bağlayıp bekletin.", "Fırçalayın."]
+    },
+    {
+        id: 115,
+        baslik: "Oda Kapısı Kolu Yay Tamiri",
+        kategori: "Marangoz",
+        zorluk: "Kolay",
+        sure: "15 Dakika",
+        aciklama: "Aşağı düşen kapı kollarını düzeltin.",
+        malzemeler: ["Alyan Anahtarı", "Yedek Yay"],
+        adimlar: ["Kolu sökün.", "İç yayı değiştirin.", "Vidalayın."]
+    },
+    {
+        id: 116,
+        baslik: "Gardırop Sürgülü Kapı Ayarı",
+        kategori: "Marangoz",
+        zorluk: "Orta",
+        sure: "30 Dakika",
+        aciklama: "Raydan çıkan dolap kapaklarını ayarlayın.",
+        malzemeler: ["Yıldız Tornavida"],
+        adimlar: ["Alt tekerlek vidalarını gevşetin.", "Teraziye alıp sıkın."]
+    },
+    {
+        id: 117,
+        baslik: "Çekmece Teleskopik Ray Değişimi",
+        kategori: "Marangoz",
+        zorluk: "Orta",
+        sure: "25 Dakika",
+        aciklama: "Açılmayan bozuk çekmece raylarını yenileyin.",
+        malzemeler: ["Ray Seti", "Tornavida"],
+        adimlar: ["Çekmeceyi çıkarın.", "Eski rayı sökün.", "Yeni rayı vidalayın."]
+    },
+    {
+        id: 118,
+        baslik: "Pencere Sineklik Tülü Yenileme",
+        kategori: "Ev Bakım",
+        zorluk: "Kolay",
+        sure: "30 Dakika",
+        aciklama: "Yırtılan sineklikleri yenisiyle değiştirin.",
+        malzemeler: ["Sineklik Tülü", "Fitil", "Fitil Çekme Aparatı"],
+        adimlar: ["Eski fitili çıkarın.", "Yeni tülü serip fitili bastırın.", "Fazlalıkları kesin."]
+    },
+    {
+        id: 119,
+        baslik: "Televizyon Kumandası Tuş Temizliği",
+        kategori: "Elektronik",
+        zorluk: "Kolay",
+        sure: "20 Dakika",
+        aciklama: "Basmayan kumandaları temizleyin.",
+        malzemeler: ["Alkol", "Kulak Çöpü"],
+        adimlar: ["Kumandayı açın.", "Devreyi silikon tuşları temizleyin.", "Kapatın."]
+    },
+    {
+        id: 120,
+        baslik: "Telefon Şarj Soketi Tüy Temizliği",
+        kategori: "Telefon",
+        zorluk: "Kolay",
+        sure: "10 Dakika",
+        aciklama: "Şarj almayan telefon girişini temizleyin.",
+        malzemeler: ["Kuru Diş İpi / Kürdan"],
+        adimlar: ["İçindeki tozları nazikçe kazıyıp çıkarın."]
+    },
+    {
+        id: 121,
+        baslik: "Laptop Ekran Menteşe Tamiri",
+        kategori: "Elektronik",
+        zorluk: "İleri",
+        sure: "50 Dakika",
+        aciklama: "Kırılan laptop menteşe yuvalarını sağlamlaştırın.",
+        malzemeler: ["Japon Yapıştırıcısı", "Karbonat"],
+        adimlar: ["Kapağı sökün.", "Kırık yuvayı karbonatla güçlendirip yapıştırın."]
+    },
+    {
+        id: 122,
+        baslik: "Mouse Çift Tıklama Sorunu Onarımı",
+        kategori: "Elektronik",
+        zorluk: "İleri",
+        sure: "40 Dakika",
+        aciklama: "Aşınan fare switch'ini onarın veya değiştirin.",
+        malzemeler: ["Lehim Havyası", "Yedek Switch"],
+        adimlar: ["Mouse'u açın.", "Eski switch'i söküp yenisini lehimleyin."]
+    },
+    {
+        id: 123,
+        baslik: "Airfryer Yağ Çözücü Temizlik",
+        kategori: "Ev Aletleri",
+        zorluk: "Kolay",
+        sure: "20 Dakika",
+        aciklama: "Yağ bağlayan sepetleri arındırın.",
+        malzemeler: ["Yağ Çözücü", "Sıcak Su"],
+        adimlar: ["Sıcak suda bekletin.", "Yağ çözücüyle fırçalayın."]
+    },
+    {
+        id: 124,
+        baslik: "Mikrodalga Fırın Sigorta Değişimi",
+        kategori: "Ev Aletleri",
+        zorluk: "İleri",
+        sure: "30 Dakika",
+        aciklama: "Çalışmayan mikrodalga sigortasını yenileyin.",
+        malzemeler: ["Yedek Cam Sigorta"],
+        adimlar: ["Fişi çekin.", "Arka kapağı açıp patlak sigortayı değiştirin."]
+    },
+    {
+        id: 125,
+        baslik: "Bulaşık Makinesi Filtre Temizliği",
+        kategori: "Ev Aletleri",
+        zorluk: "Kolay",
+        sure: "15 Dakika",
+        aciklama: "Kötü koku yapan filtreleri temizleyin.",
+        malzemeler: ["Bulaşık Deterjanı", "Fırça"],
+        adimlar: ["Filtreyi çevirerek çıkarın.", "Akan suda yıkayıp takın."]
+    },
+    {
+        id: 126,
+        baslik: "Çamaşır Makinesi Deterjan Kutusu Temizliği",
+        kategori: "Ev Aletleri",
+        zorluk: "Kolay",
+        sure: "20 Dakika",
+        aciklama: "Küf tutan gözleri temizleyin.",
+        malzemeler: ["Çamaşır Suyu", "Sünger"],
+        adimlar: ["Kutuyu tamamen çıkarın.", "Fırçalayıp durulayın."]
+    },
+    {
+        id: 127,
+        baslik: "Robot Süpürge Lidar Temizliği",
+        kategori: "Elektronik",
+        zorluk: "Kolay",
+        sure: "10 Dakika",
+        aciklama: "Hata veren yön sensörünü silin.",
+        malzemeler: ["Kulak Çöpü", "Alkol"],
+        adimlar: ["Sensör camını alkolle nazikçe silin."]
+    },
+    {
+        id: 128,
+        baslik: "Bluetooth Hoparlör Batarya Yenileme",
+        kategori: "Elektronik",
+        zorluk: "Orta",
+        sure: "40 Dakika",
+        aciklama: "Şarjı çabuk biten hoparlör pilini değiştirin.",
+        malzemeler: ["Yedek Pil", "Lehim Havyası"],
+        adimlar: ["Kutuyu açın.", "Eski pili söküp yenisini lehimleyin."]
+    },
+    {
+        id: 129,
+        baslik: "Powerbank Devre Kontrolü",
+        kategori: "Elektronik",
+        zorluk: "Orta",
+        sure: "30 Dakika",
+        aciklama: "Şarj etmeyen taşınabilir bataryayı onarın.",
+        malzemeler: ["Multimetre", "Lehim"],
+        adimlar: ["Kapağı açıp kablo bağlantılarını kontrol edin."]
+    },
+    {
+        id: 130,
+        baslik: "Monitör Güç Kablosu Temassızlığı",
+        kategori: "Elektronik",
+        zorluk: "Kolay",
+        sure: "15 Dakika",
+        aciklama: "Görüntü giden ekran kablolarını düzeltin.",
+        malzemeler: ["Yeni Kablo"],
+        adimlar: ["Bağlantıları kontrol edip yenileyin."]
+    },
+    {
+        id: 131,
+        baslik: "Ethernet RJ45 Soket Çakma",
+        kategori: "Ağ",
+        zorluk: "Orta",
+        sure: "10 Dakika",
+        aciklama: "Kırılan internet kablosu ucunu yenileyin.",
+        malzemeler: ["Kablo Pensesi", "RJ45 Konnektör"],
+        adimlar: ["Kabloları renk sırasına göre dizzin.", "Penseyle sıkıştırın."]
+    },
+    {
+        id: 132,
+        baslik: "LED Şerit Işık Ara Bağlantı Lehimleme",
+        kategori: "Aydınlatma",
+        zorluk: "Kolay",
+        sure: "20 Dakika",
+        aciklama: "Kopan şerit LED hatlarını birleştirin.",
+        malzemeler: ["Havya", "Lehim Teli"],
+        adimlar: ["Bakır noktaları lehimle tutturun."]
+    },
+    {
+        id: 133,
+        baslik: "Avize Duy Kablosu Yenileme",
+        kategori: "Aydınlatma",
+        zorluk: "Orta",
+        sure: "25 Dakika",
+        aciklama: "Yanık lamba duyunu değiştirin.",
+        malzemeler: ["Yedek Duy", "Tornavida"],
+        adimlar: ["Elektriği kesin.", "Kabloları yeni duya bağlayın."]
+    },
+    {
+        id: 134,
+        baslik: "Komodin Çekmece Kulbu Sıkılama",
+        kategori: "Marangoz",
+        zorluk: "Kolay",
+        sure: "10 Dakika",
+        aciklama: "Oynayan kulpları sabitleyin.",
+        malzemeler: ["Yıldız Tornavida"],
+        adimlar: ["İç kısımdaki vidayı sıkın."]
+    },
+    {
+        id: 135,
+        baslik: "Yatak Bazası Piston Değişimi",
+        kategori: "Marangoz",
+        zorluk: "Orta",
+        sure: "35 Dakika",
+        aciklama: "Kalkık durmayan baza amortisörünü yenileyin.",
+        malzemeler: ["Yeni Piston Seti", "Alyan"],
+        adimlar: ["Eski pimleri sökün.", "Yeni pistonları takın."]
+    },
+    {
+        id: 136,
+        baslik: "Pencere Kolu Değişimi",
+        kategori: "Ev Bakım",
+        zorluk: "Kolay",
+        sure: "15 Dakika",
+        aciklama: "Kırılan PVC pencere kollarını yenileyin.",
+        malzemeler: ["Yeni Kol", "Tornavida"],
+        adimlar: ["Kapak kapağını kaldırıp vidaları sökün.", "Yenisini takın."]
+    },
+    {
+        id: 137,
+        baslik: "Klozet Şamandıra Ayarı",
+        kategori: "Tesisat",
+        zorluk: "Kolay",
+        sure: "20 Dakika",
+        aciklama: "Sürekli su akutan rezervuarı ayarlayın.",
+        malzemeler: ["Tornavida"],
+        adimlar: ["Kapağı açıp şamandıra seviyesini düşürün."]
+    },
+    {
+        id: 138,
+        baslik: "Mutfak Tezgahı Silikon Yenileme",
+        kategori: "Tesisat",
+        zorluk: "Kolay",
+        sure: "30 Dakika",
+        aciklama: "Küflenen kenar silikonlarını yenileyin.",
+        malzemeler: ["Silikon Tabancası", "Maket Bıçağı"],
+        adimlar: ["Eski silikonu kazıyın.", "Yenisini çekip düzeltin."]
+    },
+    {
+        id: 139,
+        baslik: "Duşakabin Rulman Değişimi",
+        kategori: "Tesisat",
+        zorluk: "Orta",
+        sure: "40 Dakika",
+        aciklama: "Kaymayan duşakabin tekerleklerini değiştirin.",
+        malzemeler: ["Yedek Rulman", "Tornavida"],
+        adimlar: ["Camı söküp tekerlekleri yenileyin."]
+    },
+    {
+        id: 140,
+        baslik: "Gözlük Sapı Vida Sıkma",
+        kategori: "Aksesuar",
+        zorluk: "Kolay",
+        sure: "10 Dakika",
+        aciklama: "Gevşeyen gözlük vidalarını sıkın.",
+        malzemeler: ["Saatçi Tornavidası"],
+        adimlar: ["Menteşe vidasını sıkılaştırın."]
+    },
+    {
+        id: 141,
+        baslik: "Sırt Çantası Fermuar Sürgüsü Değişimi",
+        kategori: "Aksesuar",
+        zorluk: "Orta",
+        sure: "25 Dakika",
+        aciklama: "Kapanmayan fermuarı onarın.",
+        malzemeler: ["Pense", "Yeni Sürgü"],
+        adimlar: ["Eski sürgüyü çıkarıp yenisini takın."]
+    },
+    {
+        id: 142,
+        baslik: "Kemer Delik Açma",
+        kategori: "Aksesuar",
+        zorluk: "Kolay",
+        sure: "10 Dakika",
+        aciklama: "Yeni delik açarak kemeri ayarlayın.",
+        malzemeler: ["Deri Delme Zımbası"],
+        adimlar: ["İşaretleyip zımbayla delin."]
+    },
+    {
+        id: 143,
+        baslik: "Araba Anahtarı Kasa Değişimi",
+        kategori: "Oto",
+        zorluk: "Kolay",
+        sure: "20 Dakika",
+        aciklama: "Kırılan kumanda kasasını yenileyin.",
+        malzemeler: ["Yeni Plastik Kasa"],
+        adimlar: ["İç çipi ve anahtarı yeni kasaya taşıyın."]
+    },
+    {
+        id: 144,
+        baslik: "Araç Silecek Değişimi",
+        kategori: "Oto",
+        zorluk: "Kolay",
+        sure: "10 Dakika",
+        aciklama: "İyi silmeyen silecekleri yenileyin.",
+        malzemeler: ["Yeni Silecek Seti"],
+        adimlar: ["Eski sileceği tırnağından çıkarıp yenisini takın."]
+    },
+    {
+        id: 145,
+        baslik: "Klima Toz Filtresi Yıkama",
+        kategori: "Ev Aletleri",
+        zorluk: "Kolay",
+        sure: "15 Dakika",
+        aciklama: "Klima filtrelerini temizleyin.",
+        malzemeler: ["Su", "Sabun"],
+        adimlar: ["Filtreleri çıkarıp yıkayın ve kurutup takın."]
+    },
+    {
+        id: 146,
+        baslik: "Vantilatör Pervane Temizliği",
+        kategori: "Ev Aletleri",
+        zorluk: "Kolay",
+        sure: "20 Dakika",
+        aciklama: "Tozlanan vantilatör kafesini temizleyin.",
+        malzemeler: ["Nemli Bez"],
+        adimlar: ["Kafesi açıp pervaneyi silin."]
+    },
+    {
+        id: 147,
+        baslik: "Tost Makinesi Plaka Temizliği",
+        kategori: "Ev Aletleri",
+        zorluk: "Kolay",
+        sure: "15 Dakika",
+        aciklama: "Yapışan artıkları temizleyin.",
+        malzemeler: ["Sıcak Su", "Sünger"],
+        adimlar: ["Plakaları söküp yıkayın."]
+    },
+    {
+        id: 148,
+        baslik: "Su Isıtıcı Kireç Çözme",
+        kategori: "Ev Aletleri",
+        zorluk: "Kolay",
+        sure: "15 Dakika",
+        aciklama: "Kettle içindeki kireci yok edin.",
+        malzemeler: ["Limon Tuzu"],
+        adimlar: ["Suyla limon tuzunu kaynatıp durulayın."]
+    },
+    {
+        id: 149,
+        baslik: "Duvar Saati Mekanizma Değişimi",
+        kategori: "Ev Bakım",
+        zorluk: "Kolay",
+        sure: "15 Dakika",
+        aciklama: "Çalışmayan saat mekanizmasını yenileyin.",
+        malzemeler: ["Yeni Saat Motoru"],
+        adimlar: ["Akrep yelkovanı söküp motoru değiştirin."]
+    },
+    {
+        id: 150,
+        baslik: "Ayakkabı Tabanı Yapıştırma",
+        kategori: "Giyim",
+        zorluk: "Kolay",
+        sure: "20 Dakika",
+        aciklama: "Açılan spor ayakkabı tabanını yapıştırın.",
+        malzemeler: ["Jel Yapıştırıcı"],
+        adimlar: ["Yüzeyi temizleyip yapıştırıcı sürün ve presleyin."]
+    },
+    {
+        id: 151,
+        baslik: "Mont Fermuar Diş Düzeltme",
+        kategori: "Giyim",
+        zorluk: "Kolay",
+        sure: "15 Dakika",
+        aciklama: "Takılan mont fermuarını düzeltin.",
+        malzemeler: ["Pense"],
+        adimlar: ["Eğrilen dişi hafifçe düzeltin."]
+    },
+    {
+        id: 152,
+        baslik: "Pantolon Paçası Dikişi",
+        kategori: "Giyim",
+        zorluk: "Kolay",
+        sure: "25 Dakika",
+        aciklama: "Sökülen paçaları dikin.",
+        malzemeler: ["İğne", "İplik"],
+        adimlar: ["İçten gizli dikişle tutturun."]
+    },
+    {
+        id: 153,
+        baslik: "Şemsiye Teli Düzeltme",
+        kategori: "Aksesuar",
+        zorluk: "Orta",
+        sure: "20 Dakika",
+        aciklama: "Bükülen şemsiye telini onarın.",
+        malzemeler: ["İnce Tel", "Pense"],
+        adimlar: ["Kırık noktayı telle sabitleyin."]
+    },
+    {
+        id: 154,
+        baslik: "Valiz Çekçek Kolu Sıkışıklığı Giderme",
+        kategori: "Aksesuar",
+        zorluk: "Orta",
+        sure: "30 Dakika",
+        aciklama: "Açılmayan valiz sapını yağlayın.",
+        malzemeler: ["WD-40 Sprey"],
+        adimlar: ["Raylara sprey sıkıp hareket ettirin."]
+    },
+    {
+        id: 155,
+        baslik: "Bahçe Hortumu Kelepçe Sıkma",
+        kategori: "Bahçe",
+        zorluk: "Kolay",
+        sure: "15 Dakika",
+        aciklama: "Su kaçıran hortum ekini sıkın.",
+        malzemeler: ["Tornavida"],
+        adimlar: ["Kelepçe vidasını sıkılaştırın."]
+    },
+    {
+        id: 156,
+        baslik: "Budama Makası Yay Değişimi",
+        kategori: "Bahçe",
+        zorluk: "Orta",
+        sure: "25 Dakika",
+        aciklama: "Açılmayan bahçe makasını onarın.",
+        malzemeler: ["Yedek Yay"],
+        adimlar: ["Eski yayı çıkarıp yenisini takın."]
+    },
+    {
+        id: 157,
+        baslik: "Bisiklet Patlak Tamiri",
+        kategori: "Bisiklet",
+        zorluk: "Orta",
+        sure: "25 Dakika",
+        aciklama: "İnen bisiklet lastiğini yama yapın.",
+        malzemeler: ["Yama Seti", "Pompa"],
+        adimlar: ["İç lastiği çıkarıp deliği bulun ve yama yapın."]
+    },
+    {
+        id: 158,
+        baslik: "Bisiklet Zinciri Yağlama",
+        kategori: "Bisiklet",
+        zorluk: "Kolay",
+        sure: "15 Dakika",
+        aciklama: "Paslanan zinciri yağlayın.",
+        malzemeler: ["Zincir Yağı", "Bez"],
+        adimlar: ["Zinciri temizleyip yağ damlatın."]
+    },
+    {
+        id: 159,
+        baslik: "Kaykay Rulman Temizliği",
+        kategori: "Spor",
+        zorluk: "Orta",
+        sure: "30 Dakika",
+        aciklama: "Dönmeyen tekerlek rulmanlarını temizleyin.",
+        malzemeler: ["Alkol", "Makine Yağı"],
+        adimlar: ["Rulmanları açıp temizleyin ve yağlayın."]
+    },
+    {
+        id: 160,
+        baslik: "El Feneri Kontak Temizliği",
+        kategori: "Elektronik",
+        zorluk: "Kolay",
+        sure: "10 Dakika",
+        aciklama: "Temassızlık yapan feneri çalıştırın.",
+        malzemeler: ["Zımpara Kağıdı"],
+        adimlar: ["Pil yataklarındaki pası zımparalayın."]
+    },
+    {
+        id: 161,
+        baslik: "Çakmak Gaz Dolumu",
+        kategori: "Aksesuar",
+        zorluk: "Kolay",
+        sure: "10 Dakika",
+        aciklama: "Gazı biten çakmağı doldurun.",
+        malzemeler: ["Gaz Tüpü"],
+        adimlar: ["Tüpü alt yuvaya bastırıp doldurun."]
+    },
+    {
+        id: 162,
+        baslik: "Uzatma Kablosu İç Kontrol",
+        kategori: "Elektronik",
+        zorluk: "Orta",
+        sure: "25 Dakika",
+        aciklama: "Elektrik vermeyen priz grubunu kontrol edin.",
+        malzemeler: ["Tornavida"],
+        adimlar: ["Kapağı açıp kopan kabloyu vidalayın."]
+    },
+    {
+        id: 163,
+        baslik: "Kapı Zili Pil Değişimi",
+        kategori: "Elektronik",
+        zorluk: "Kolay",
+        sure: "10 Dakika",
+        aciklama: "Çalmayan kablosuz zilin pilini yenileyin.",
+        malzemeler: ["Kalem Pil"],
+        adimlar: ["Kapağı açıp pili değiştirin."]
+    },
+    {
+        id: 164,
+        baslik: "Duvar Çatlağı Macunlama",
+        kategori: "Ev Bakım",
+        zorluk: "Orta",
+        sure: "40 Dakika",
+        aciklama: "Duvardaki kılcal çatlakları kapatın.",
+        malzemeler: ["Saten Macun", "Spatula"],
+        adimlar: ["Macunu çekip kuruyunca zımparalayın."]
+    },
+    {
+        id: 165,
+        baslik: "Ahşap Parke Çizik Giderme",
+        kategori: "Marangoz",
+        zorluk: "Kolay",
+        sure: "15 Dakika",
+        aciklama: "Çizilen parkeleri rötuşlayın.",
+        malzemeler: ["Rötuş Kalemi"],
+        adimlar: ["Çiziği kalemle boyayıp parlatın."]
+    },
+    {
+        id: 166,
+        baslik: "Masa Ayağı Sağlamlaştırma",
+        kategori: "Marangoz",
+        zorluk: "Kolay",
+        sure: "10 Dakika",
+        aciklama: "Sallanan masaları sabitleyin.",
+        malzemeler: ["Pul", "Anahtar"],
+        adimlar: ["Gevşeyen somunları pulla birlikte sıkın."]
+    },
+    {
+        id: 167,
+        baslik: "Akıllı Telefon Ekran Koruyucu Değişimi",
+        kategori: "Telefon",
+        zorluk: "Kolay",
+        sure: "10 Dakika",
+        aciklama: "Çatlayan cam filmini yenileyin.",
+        malzemeler: ["Temperli Cam", "Alkol Mendili"],
+        adimlar: ["Ekranı temizleyip yeni camı ortalayarak yapıştırın."]
+    },
+    {
+        id: 168,
+        baslik: "Kablolu Kulaklık Jack Tamiri",
+        kategori: "Elektronik",
+        zorluk: "Orta",
+        sure: "20 Dakika",
+        aciklama: "Ses vermeyen kulaklık ucunu yenileyin.",
+        malzemeler: ["Yedek Jack", "Havya"],
+        adimlar: ["Eski ucu kesip kabloları yeni jacka lehimleyin."]
+    },
+    {
+        id: 169,
+        baslik: "Ütü Su Akıtma Sorunu Çözümü",
+        kategori: "Ev Aletleri",
+        zorluk: "Kolay",
+        sure: "15 Dakika",
+        aciklama: "Tabandan su sızdıran ütüyü kireçten arındırın.",
+        malzemeler: ["Sirke"],
+        adimlar: ["Hazneye sirke koyup buhar verdirerek temizleyin."]
+    },
+    {
+        id: 170,
+        baslik: "Saç Maşası Kablo Dolaşma Önleme",
+        kategori: "Ev Aletleri",
+        zorluk: "Orta",
+        sure: "25 Dakika",
+        aciklama: "Dönmeyen maşa kablo başlığını onarın.",
+        malzemeler: ["Tornavida"],
+        adimlar: ["Kapağı açıp döner mafsalı temizleyin."]
+    },
+    {
+        id: 171,
+        baslik: "El Blenderı Tetik Düğmesi Onarımı",
+        kategori: "Ev Aletleri",
+        zorluk: "İleri",
+        sure: "40 Dakika",
+        aciklama: "Basılı kalmayan blender tuşunu onarın.",
+        malzemeler: ["Yedek Yay"],
+        adimlar: ["Gövdeyi açıp yayı yerine oturtun."]
+    },
+    {
+        id: 172,
+        baslik: "Dijital Baskül Pil Yuvası Temizliği",
+        kategori: "Ev Aletleri",
+        zorluk: "Kolay",
+        sure: "10 Dakika",
+        aciklama: "Oksitlenen baskül yaylarını temizleyin.",
+        malzemeler: ["Sirke", "Kulak Çöpü"],
+        adimlar: ["Oksitleri sirkeyle silip kurulayın."]
+    },
+    {
+        id: 173,
+        baslik: "Fotoğraf Çerçevesi Askı Montajı",
+        kategori: "Ev Bakım",
+        zorluk: "Kolay",
+        sure: "10 Dakika",
+        aciklama: "Duvara asma aparatı takın.",
+        malzemeler: ["Küçük Vida", "Tornavida"],
+        adimlar: ["Askı telini veya demirini vidalayın."]
+    },
+    {
+        id: 174,
+        baslik: "Bere / Atkı Sökük Düzeltme",
+        kategori: "Giyim",
+        zorluk: "Kolay",
+        sure: "10 Dakika",
+        aciklama: "Örgü ipleri kaçan atkıları onarın.",
+        malzemeler: ["Tığ"],
+        adimlar: ["İpi tığ yardımıyla içeri çekip düğümleyin."]
+    },
+    {
+        id: 175,
+        baslik: "Valiz Tekerleği Silikon Yenileme",
+        kategori: "Aksesuar",
+        zorluk: "İleri",
+        sure: "40 Dakika",
+        aciklama: "Parçalanan valiz tekerleklerini yenileyin.",
+        malzemeler: ["Yedek Tekerlek", "Testere"],
+        adimlar: ["Perçini kesip tekerleği değiştirin."]
+    },
+    {
+        id: 176,
+        baslik: "Balkon Saksı Askısı Sabitleme",
+        kategori: "Bahçe",
+        zorluk: "Kolay",
+        sure: "10 Dakika",
+        aciklama: "Sallanan saksı demirlerini sıkın.",
+        malzemeler: ["Anahtar"],
+        adimlar: ["Bağlantı somunlarını sıkılaştırın."]
+    },
+    {
+        id: 177,
+        baslik: "Bisiklet Fren Pabuç Ayarı",
+        kategori: "Bisiklet",
+        zorluk: "Orta",
+        sure: "20 Dakika",
+        aciklama: "Tutmada zorlanan frenleri ayarlayın.",
+        malzemeler: ["Alyan Anahtarı"],
+        adimlar: ["Pabuçları janta sıfırlayıp vidalayın."]
+    },
+    {
+        id: 178,
+        baslik: "Bisiklet Vites Teli Ayarı",
+        kategori: "Bisiklet",
+        zorluk: "Orta",
+        sure: "20 Dakika",
+        aciklama: "Geçmeyen vitesleri ayarlayın.",
+        malzemeler: ["Tornavida"],
+        adimlar: ["Gerginlik somunuyla vites geçişini ayarlayın."]
+    },
+    {
+        id: 179,
+        baslik: "Fitness Direnç Bandı Kontrolü",
+        kategori: "Spor",
+        zorluk: "Kolay",
+        sure: "5 Dakika",
+        aciklama: "Kopmak üzere olan bantları kontrol edin.",
+        malzemeler: ["Pudra"],
+        adimlar: ["Pudralayıp çatlak kontrolü yapın."]
+    },
+    {
+        id: 180,
+        baslik: "Görüntülü Diafon Kablosu Yenileme",
+        kategori: "Elektronik",
+        zorluk: "Orta",
+        sure: "30 Dakika",
+        aciklama: "Ses vermeyen bina diafonunu onarın.",
+        malzemeler: ["Kablo Soyucu"],
+        adimlar: ["Kopan hat uçlarını yenileyip bağlayın."]
+    },
+    {
+        id: 181,
+        baslik: "Halı Kaydırmaz Taban Yenileme",
+        kategori: "Ev Bakım",
+        zorluk: "Kolay",
+        sure: "15 Dakika",
+        aciklama: "Kayan halıların altına tutucu ekleyin.",
+        malzemeler: ["Silikon Tabancası"],
+        adimlar: ["Tabana şeritler halinde silikon sıkıp kurutun."]
+    },
+    {
+        id: 182,
+        baslik: "Ayna Askı Demiri Sağlamlaştırma",
+        kategori: "Ev Bakım",
+        zorluk: "Kolay",
+        sure: "15 Dakika",
+        aciklama: "Oynayan duvar aynasını sabitleyin.",
+        malzemeler: ["Dübel", "Vida"],
+        adimlar: ["Askı yerini daha sağlam dübellerle sabitleyin."]
+    },
+    {
+        id: 183,
+        baslik: "Tablo Askı Çivisi Yenileme",
+        kategori: "Ev Bakım",
+        zorluk: "Kolay",
+        sure: "10 Dakika",
+        aciklama: "Düşen tablolar için yeni yuvaya çivi çakın.",
+        malzemeler: ["Çekiç", "Çelik Çivi"],
+        adimlar: ["Yeni noktaya çivi çakıp tabloyu asın."]
+    },
+    {
+        id: 184,
+        baslik: "Kartonpiyer Alçı Dolgusu",
+        kategori: "Ev Bakım",
+        zorluk: "Orta",
+        sure: "30 Dakika",
+        aciklama: "Ayrılan kartonpiyer boşluklarını kapatın.",
+        malzemeler: ["Saten Alçı", "Su"],
+        adimlar: ["Alçıyı karıştırıp aralara sürün."]
+    },
+    {
+        id: 185,
+        baslik: "Balkon Kapısı Menteşe Ayarı",
+        kategori: "Ev Bakım",
+        zorluk: "Kolay",
+        sure: "20 Dakika",
+        aciklama: "Yere sürten balkon kapısını yükseltin.",
+        malzemeler: ["Alyan"],
+        adimlar: ["Alt menteşe ayar vidasını çevirerek kapıyı kaldırın."]
+    },
+    {
+        id: 186,
+        baslik: "Taharet Musluğu Teflon Bant Yenileme",
+        kategori: "Tesisat",
+        zorluk: "Kolay",
+        sure: "15 Dakika",
+        aciklama: "Dipten su kaçıran musluğu sarın.",
+        malzemeler: ["Teflon Bant", "Anahtar"],
+        adimlar: ["Musluğu söküp dişliye teflon sarın ve takın."]
+    },
+    {
+        id: 187,
+        baslik: "Banyo Havlupan Vana Kaçağı Giderme",
+        kategori: "Tesisat",
+        zorluk: "Orta",
+        sure: "25 Dakika",
+        aciklama: "Sızdıran radyatör vanasını sıkın.",
+        malzemeler: ["Kurbağacık"],
+        adimlar: ["Rakor somunlarını sıkılaştırın."]
+    },
+    {
+        id: 188,
+        baslik: "Cüzdan Dikiş Söküğü Tamiri",
+        kategori: "Aksesuar",
+        zorluk: "Kolay",
+        sure: "20 Dakika",
+        aciklama: "Açılan deri cüzdan dikişini dikin.",
+        malzemeler: ["Mumlu İp", "Deri İğnesi"],
+        adimlar: ["Eski deliklerden iğneyle geçerek dikin."]
+    },
+    {
+        id: 189,
+        baslik: "Kemer Toka Vidası Sıkma",
+        kategori: "Aksesuar",
+        zorluk: "Kolay",
+        sure: "10 Dakika",
+        aciklama: "Oynayan kemer tokasını sabitleyin.",
+        malzemeler: ["Düz Tornavida"],
+        adimlar: ["Aradaki mini vidayı sıkın."]
+    },
+    {
+        id: 190,
+        baslik: "Anahtarlık Halka Yenileme",
+        kategori: "Aksesuar",
+        zorluk: "Kolay",
+        sure: "5 Dakika",
+        aciklama: "Gevşeyen anahtarlık halkasını değiştirin.",
+        malzemeler: ["Yeni Halka"],
+        adimlar: ["Eski halkayı çıkarıp yenisini takın."]
+    },
+    {
+        id: 191,
+        baslik: "Araç İç Tavan Ampulü Değişimi",
+        kategori: "Oto",
+        zorluk: "Kolay",
+        sure: "15 Dakika",
+        aciklama: "Yanmayan araç içi lambasını değiştirin.",
+        malzemeler: ["Plastik Tornavida", "W5W Ampul"],
+        adimlar: ["Kapağı söküp patlak ampulü yenileyin."]
+    },
+    {
+        id: 192,
+        baslik: "Oto Paspas Klipsi Takma",
+        kategori: "Oto",
+        zorluk: "Kolay",
+        sure: "10 Dakika",
+        aciklama: "Kayan sürücü paspasını sabitleyin.",
+        malzemeler: ["Sabitleme Klipsi"],
+        adimlar: ["Tabana klipsi sabitleyip paspası takın."]
+    },
+    {
+        id: 193,
+        baslik: "Direksiyon Kılıfı Dikimi",
+        kategori: "Oto",
+        zorluk: "Orta",
+        sure: "45 Dakika",
+        aciklama: "Derisi aşınan direksiyona kılıf dikin.",
+        malzemeler: ["Kılıf ve Özel İpi"],
+        adimlar: ["Kılıfı geçirip karşılıklı ilmekleri dikerek sıkın."]
+    },
+    {
+        id: 194,
+        baslik: "Ekmek Kızartma Kırıntı Tepsisi Temizliği",
+        kategori: "Ev Aletleri",
+        zorluk: "Kolay",
+        sure: "5 Dakika",
+        aciklama: "Alt tabandaki yanık ekmek kırıntılarını temizleyin.",
+        malzemeler: ["Islak Mendil"],
+        adimlar: ["Alt tepsiyi çekip boşaltın ve silin."]
+    },
+    {
+        id: 195,
+        baslik: "Portmanto Askılık Vida Sağlamlaştırma",
+        kategori: "Marangoz",
+        zorluk: "Kolay",
+        sure: "15 Dakika",
+        aciklama: "Duvardan kurtulan askılığı sağlamlaştırın.",
+        malzemeler: ["Daha Kalın Dübel", "Matkap"],
+        adimlar: ["Delikleri büyüterek yeni dübel çakıp vidalayın."]
+    },
+    {
+        id: 196,
+        baslik: "Wi-Fi Router Anten Kontrolü",
+        kategori: "Ağ",
+        zorluk: "Kolay",
+        sure: "10 Dakika",
+        aciklama: "İnternet çekim gücünü artıran antenleri sıkın.",
+        malzemeler: ["El Gücü"],
+        adimlar: ["Gevşeyen anten mafsallarını saat yönünde sıkın."]
+    },
+    {
+        id: 197,
+        baslik: "T-Shirt Sökük Kol Dikişi",
+        kategori: "Giyim",
+        zorluk: "Kolay",
+        sure: "15 Dakika",
+        aciklama: "Koltuk altı sökülen tişörtü dikin.",
+        malzemeler: ["İğne", "Uygun Renk İplik"],
+        adimlar: ["İçten düz dikişle söküğü kapatın."]
+    },
+    {
+        id: 198,
+        baslik: "Bahçe Sulama Tabancası Conta Değişimi",
+        kategori: "Bahçe",
+        zorluk: "Kolay",
+        sure: "10 Dakika",
+        aciklama: "Su kaçıran hortum tabancasını onarın.",
+        malzemeler: ["Yedek Kauçuk Conta"],
+        adimlar: ["Giriş rakorunu söküp eski contayı yenisiyle değiştirin."]
+    },
+    {
+        id: 199,
+        baslik: "Masa Lambası Duy Temassızlığı",
+        kategori: "Aydınlatma",
+        zorluk: "Orta",
+        sure: "20 Dakika",
+        aciklama: "Yanıp sönen abajur veya lambayı onarın.",
+        malzemeler: ["Kargaburun", "Tornavida"],
+        adimlar: ["Fişi çekip içindeki bakır yaprağı yukarı kaldırın."]
+    },
+    {
+        id: 200,
+        baslik: "Sigorta Kutusu Etiketleme",
+        kategori: "Elektrik",
+        zorluk: "İleri",
+        sure: "20 Dakika",
+        aciklama: "Hangi sigortanın nereye ait olduğunu düzenleyin.",
+        malzemeler: ["Etiket Makinesi / Kalem"],
+        adimlar: ["Odaları test edip sigorta kapaklarına etiket yapıştırın."]
+    }
+];
 
         let aktifKategori = 'Tümü';
 
